@@ -66,11 +66,15 @@ llm = connectar_ollama()
 
 qa_chain = crear_RAG(llm, vectordb)
 
-pregunta = "Quins simptomes són senyal d'emergència si fumo cannabis?"
-
-resultado = fer_pregunta(qa_chain, pregunta)
+pregunta = "Que li passa a una persona quan consumeix cannabis? Centra't en els efectes al moment de consumir, tant els bons com els dolents."
 
 print("🟡 Pregunta enviada al model...")
-resultat = qa_chain.invoke({"query": pregunta})
+resultat = fer_pregunta(qa_chain, pregunta)
 print("✅ Resposta rebuda!")
 print(resultat["result"])
+
+# Mostrem els fragments de text utilitzats pel model per respondre
+print("\n📚 Fragments utilitzats pel model:")
+for i, doc in enumerate(resultat["source_documents"]):
+    print(f"\n--- Fragment {i+1} ---")
+    print(doc.page_content[:1000])  # Mostra els primers 1000 caràcters del chunk
