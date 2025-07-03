@@ -1,4 +1,4 @@
-﻿IMPORTAT: respon sempre amb l'idioma que s'ha fet la pregunta, sol ser en català
+﻿IMPORTAT PER A CADA PREGUNTA SIGUI QUINA SIGUI SEMPRE TENIR EN COMPTE AIXÒ: respon SEMPRE amb l'idioma que s'ha fet la pregunta, sol ser en CATALÀ
 * Cannabis
 * Nom científic: Cannabaceae
 * Descripció: És una família amplia de plantes que inclou dues espècies psicoactivas: Cannabis Sativa y Cannabis Indica. Gràcies a les avançades tècniques de cultiu es pot cultivar en quasi qualsevol part del món, a més a més de poder cultivar-se en interiors, s’anomena “indoor”. Els productes derivats del cannabis poden presentar-se de diverses maneres:
@@ -20,7 +20,8 @@
    * Condicions mèdiques, sobretot amb malalties metals
    * Edat i sexe (a les dones afecta més)
    * Experiència (tolerància)
-* Efectes desitjats (a curt plaç):
+* Efectes desitjats (a curt plaç, és a dir, que passa quan fumes o consumeixes):
+Quan et fumes un porro o consumeixes cannabis de qualsevol manera els efectes més habituals i els que busca la gent al consumir són aquests.
    * Relaxació
    * Benestar
    * Riure incontrolable
@@ -29,7 +30,8 @@
    * Apreciació diferent de la música
    * Reducció del dolor
    * Augment de la creativitat
-* Efectes no desitjats (a curt plaç):
+* Efectes no desitjats (a curt plaç, és a dir, que passa quan fumes o consumeixes):
+Quan et fumes un porro o consumeixes cannabis de qualsevol manera hi pot haver efectes poc després de consumir que no són els que se solen buscar i poden produir males sensacions.
    * Baixades de tensió brusques (hipotensió), que poden portar a marejos, pell pàl·lida i suors. És comú si no es consumeix amb responsabilitat i es recomana tumbar a la persona amb les cames amunt per a que li arribi la sang al cervell
    * Sequedat a la boca
    * Envermelliment als ulls
@@ -39,13 +41,13 @@
    * Lentitud en els moviments
    * Dificultad de la memòria a curt plaç, sobretot si es va sota els efectes
    * Atacs de pànic, sobretot en persones que no consumeixen habitualment o persones amb previs problemes psicològics. En aquests casos s’ha d’acompanyar a la persona a un lloc tranquil per calmar-la i recordar-li que els efectes acabaran desapareixent
-* Efectes a llarg plaç:
+* Efectes a llarg plaç, és a dir, que passa quan fumes o consumeixes durant molt temps:
    * Tos, sensació d’ofegament, sobretot per culpa de barrejar-ho amb el tabac. Especialment si es fuma a cartó ja que no filtra l’aire
    * El consum continuat produeix tolerància, vol dir que cada cop hauràs de consumir més per a poder arribar als mateixos efectes que abans
    * En persones que deixen de consumir després de fer-ho durant molt temps es poden produir sintomes d’abstinència: ansietat, mal de cap, dificultat per dormir i pèrdua de la gana
    * En persones amb predisposició a trastorns psicòtics podria desencadenar a malalties mentals com ara l’esquizofrènia
    * A nivells científics el cannabis no es addictiu, però sovint usuaris regulars mostren signes d’abstinència. Tot i que és cert que la majoria de persones poden regular o acabar el seu consum fàcilment.
-* Dosis: La dosis varia segons el mètode de consum i la concentració de THC, amb els comestibles s’ha d’anar més amb compte perquè poden tenir efectes inesperats. A més a més sempre es recomana esperar entre calades per tal de veure quins efectes està produint.
+* Dosis: La dosis és la quantitat de cannabis que es recomana consumir per tal de tenir una bona experiència, varia segons el mètode de consum i la concentració de THC, amb els comestibles s’ha d’anar més amb compte perquè poden produir sensacions més fortes. A més a més sempre es recomana esperar entre calades per tal de veure quins efectes està produint.
    * Fumat (porros, pipes vaporitzadors): Per a usuaris novells entre un 0.1 - 0.2g. Per a usuaris habituals entre 0.3-0.5g.
    *  Comestibles (galetes, olis…): Per a usuaris novells uns 0.03g. Per a usuaris habituals uns 0.07g
 * Duració: La duració dels efectes depèn del mètode de consum. També de la tolerància de l’usuari, el pes i l’estat emocional, és a dir, també afecta la manera com tu perceps l’efecte.
