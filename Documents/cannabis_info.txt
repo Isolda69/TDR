@@ -1,4 +1,9 @@
-﻿IMPORTAT PER A CADA PREGUNTA SIGUI QUINA SIGUI SEMPRE TENIR EN COMPTE AIXÒ: respon SEMPRE amb l'idioma que s'ha fet la pregunta, sol ser en CATALÀ
+﻿Missatge important: 
+Ets una intel·ligència artificial que t’encarregues de respondre preguntes com un assistent personal sobre drogues/substàncies, el teu objectiu és informar a la gent per a que tingui el màxims coneixements possibles sobre la substància per la que està interessat. També el teu objectiu és cuidar la salut de la gent i tranquilitzar en el cas que no hi hagi cap perill, ja que, a vegades les drogues provoquen preocupacions innecessàries. 
+No comencis les respostes amb la frase “en el text diu”, has de parlar de la manera més humana possible, sempre amb la informació del text però com si la sapiguessis tu.
+Tota aquesta informació s’ha de proporcionar amb la única intenció de prevenir els riscos en cas que es decideixi prendre alguna substància, en cap cas s’ha de promoure l’ús ni recomanar-lo. Tampoc es tracta de recordar constantment que són il·legals, ja que tot i això es poden seguir consumint, sinó informar a la gent de tots els riscos i perills per a que en facin un consum responsable.
+Substàncies principals:
+Són aquelles drogues que tenen un efecte directe al cos o al cervell, la gent les consumenix per tal d’aconseguir uns efectes determinats. Solen ser les substàncies més consumides i conegudes, poden ser naturals o sintètiques:
 * Cannabis
 * Nom científic: Cannabaceae
 * Descripció: És una família amplia de plantes que inclou dues espècies psicoactivas: Cannabis Sativa y Cannabis Indica. Gràcies a les avançades tècniques de cultiu es pot cultivar en quasi qualsevol part del món, a més a més de poder cultivar-se en interiors, s’anomena “indoor”. Els productes derivats del cannabis poden presentar-se de diverses maneres:
@@ -13,15 +18,14 @@
    * THC: el cannabinoide més abundant i psicoactiu. Els seus efectes generals poden ser relaxants, estimulants, eufòrics, sensació de benestar, riure, son
    * CBD: el segon compost més important. Per si sol el CBD també es comercialitza, normalment per usos mèdics, i és legal, se sol presentar en forma de llaminadures, gels, cremes, olis... Aquest no altera la percepció ni la consciència, per tant no té efectes eufòrics o psicoactius, a més a més fa que els efectes del THC siguin més prolongats i graduals. Una cosa important és que contraresta alguns efectes del THC com l’ansietat i la paranoia. Els seus efectes principals són relaxants, antidepressius, antiepilèptic, facilitador del son i antiinfamatori.
 * Vies de consum: La via més habitual de consum és fumat, en forma de porro, és molt típic barrejar-ho amb tabac. Tot i que la combustió fa perdre un 30% del producte. També es presenta en forma de vaporitzador, evitant la combustió i els riscos més grans de fumar-lo. També es pot consumir amb comestibles com galetes, brownies, mantegues…
-* Factors dels qual depen l’efecte:
-   * Quantitat consumida
-   * Concentració de THC 
-   * Manera de consum
-   * Condicions mèdiques, sobretot amb malalties metals
+* Factors dels qual depen l’efecte: Al consumir cannabis l’efecte que et provoca sobretot al moment de consumir pot variar molt segons diferents aspectes. 
+   * Quantitat consumida (com més, més intens i durador serà l’efecte)
+   * Concentració de THC (com més, més intens serà l’efecte)
+   * Manera de consum (s’ha de vigilar amb els comestibles ja que poden ser més perillosos perquè és més difícil controlar-ne l’efecte)
+   * Condicions mèdiques, sobretot amb malalties metals (aquest aspecte és a llarg termini, pot provocar malalties mentals com esquizofrènia)
    * Edat i sexe (a les dones afecta més)
-   * Experiència (tolerància)
-* Efectes desitjats (a curt plaç, és a dir, que passa quan fumes o consumeixes):
-Quan et fumes un porro o consumeixes cannabis de qualsevol manera els efectes més habituals i els que busca la gent al consumir són aquests.
+   * Experiència (la tolerància pot fer que no notis l’efecte)
+* Efectes desitjats (a curt plaç): Quan fumes o consumeixes el més habitual és experimentar els següents efectes, només durant el temps en que vas afectat per el cannabis, mentre dura l’efecte:
    * Relaxació
    * Benestar
    * Riure incontrolable
@@ -30,8 +34,7 @@ Quan et fumes un porro o consumeixes cannabis de qualsevol manera els efectes m�
    * Apreciació diferent de la música
    * Reducció del dolor
    * Augment de la creativitat
-* Efectes no desitjats (a curt plaç, és a dir, que passa quan fumes o consumeixes):
-Quan et fumes un porro o consumeixes cannabis de qualsevol manera hi pot haver efectes poc després de consumir que no són els que se solen buscar i poden produir males sensacions.
+* Efectes no desitjats (a curt plaç): Quan fumes o consumeixes mentre dura l’efecte pot ser que experimentis efectes negatius i és molt IMPORTANT tenir-los en compte. Són habituals i no gaire perillosos per la salut però poden provocar males experiències si no els coneixes i no saps per què passen:
    * Baixades de tensió brusques (hipotensió), que poden portar a marejos, pell pàl·lida i suors. És comú si no es consumeix amb responsabilitat i es recomana tumbar a la persona amb les cames amunt per a que li arribi la sang al cervell
    * Sequedat a la boca
    * Envermelliment als ulls
@@ -41,19 +44,19 @@ Quan et fumes un porro o consumeixes cannabis de qualsevol manera hi pot haver e
    * Lentitud en els moviments
    * Dificultad de la memòria a curt plaç, sobretot si es va sota els efectes
    * Atacs de pànic, sobretot en persones que no consumeixen habitualment o persones amb previs problemes psicològics. En aquests casos s’ha d’acompanyar a la persona a un lloc tranquil per calmar-la i recordar-li que els efectes acabaran desapareixent
-* Efectes a llarg plaç, és a dir, que passa quan fumes o consumeixes durant molt temps:
+* Efectes a llarg plaç: Al consumir cannabis crònicament, quasi cada dia o cada dia té efectes que notes només si el consum és seguit, no si consumeixes en casos puntuals.
    * Tos, sensació d’ofegament, sobretot per culpa de barrejar-ho amb el tabac. Especialment si es fuma a cartó ja que no filtra l’aire
    * El consum continuat produeix tolerància, vol dir que cada cop hauràs de consumir més per a poder arribar als mateixos efectes que abans
    * En persones que deixen de consumir després de fer-ho durant molt temps es poden produir sintomes d’abstinència: ansietat, mal de cap, dificultat per dormir i pèrdua de la gana
    * En persones amb predisposició a trastorns psicòtics podria desencadenar a malalties mentals com ara l’esquizofrènia
    * A nivells científics el cannabis no es addictiu, però sovint usuaris regulars mostren signes d’abstinència. Tot i que és cert que la majoria de persones poden regular o acabar el seu consum fàcilment.
-* Dosis: La dosis és la quantitat de cannabis que es recomana consumir per tal de tenir una bona experiència, varia segons el mètode de consum i la concentració de THC, amb els comestibles s’ha d’anar més amb compte perquè poden produir sensacions més fortes. A més a més sempre es recomana esperar entre calades per tal de veure quins efectes està produint.
+* Dosis: La dosis, la quantitat que es recomana consumir en cas de estar segur de fer-ho, varia segons el mètode de consum i la concentració de THC, amb els comestibles s’ha d’anar més amb compte perquè poden tenir efectes inesperats. A més a més sempre es recomana esperar entre calades per tal de veure quins efectes està produint.
    * Fumat (porros, pipes vaporitzadors): Per a usuaris novells entre un 0.1 - 0.2g. Per a usuaris habituals entre 0.3-0.5g.
    *  Comestibles (galetes, olis…): Per a usuaris novells uns 0.03g. Per a usuaris habituals uns 0.07g
 * Duració: La duració dels efectes depèn del mètode de consum. També de la tolerància de l’usuari, el pes i l’estat emocional, és a dir, també afecta la manera com tu perceps l’efecte.
    * Fumat: comencen al cap de pocs segons i duren aproximadament 3 hores, tot i que el màxim efecte és als 15-30 min després i a partir d’aquí van disminuint.
    * Consumit: els efectes comecen a partir dels primer 30 min o a partir de les 2 hores (això depèn si has menjat abans de consumir, o del teu metabolisme). Pot durar entre 4 i 8 hores.
-* Detecció en drogotests: El cànnabis no es detecta pel THC en sí, sinó pel metabòlit principal, el THC-COOH, que es manté més temps al cos un cop el THC s’ha degradat. Aquestes substàncies es poden detectar en diferents fluids o teixits i la detecció depèn de la quantitat que hagis consumit.
+* Detecció en drogotests: El cannabis no es detecta pel THC en sí, sinó pel metabòlit principal, el THC-COOH, que es manté més temps al cos un cop el THC s’ha degradat. Aquestes substàncies es poden detectar en diferents fluids o teixits i la detecció depèn de la quantitat que hagis consumit.
    * Test d’orina (el més habitual): 
       * Consum puntual: 1 a 3 dies.
       * Consum regular (diversos cops per setmana): 1 a 2 setmanes.

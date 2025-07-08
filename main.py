@@ -15,7 +15,7 @@ def carregar_document(ruta_txt: str):                           #La part de str 
     return documents
 
 # Dividir el text en fragments més petits "chunks":
-def dividir_chunks(documents, chunk_size: int = 1000, chunk_overlap: int = 200):         # La superposicio indica que el seguent fragment agafi els últims 200 caràcters per tal de no tallar frases per la meitat
+def dividir_chunks(documents, chunk_size: int = 1500, chunk_overlap: int = 500):         # La superposicio indica que el seguent fragment agafi els últims 200 caràcters per tal de no tallar frases per la meitat
     splitter = RecursiveCharacterTextSplitter(                                           # Separa el text segons el que haguem definit en els paràmetres
         chunk_size = chunk_size,                                                         # Defineix el paràmetre de la funció com un objecte que té la llibreria
         chunk_overlap = chunk_overlap
@@ -42,7 +42,7 @@ def connectar_ollama(model: str = "llama3:8b"):
 
 # Crear la cadena RAG, unint la base vectorial de Chroma amb el model de Llama
 def crear_RAG(llm, vectordb):
-    retriever = vectordb.as_retriever()             # Busca els troços de text més semblants a la pregunta
+    retriever = vectordb.as_retriever(search_kwargs={"k": 5})             # Busca els troços de text més semblants a la pregunta
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
         chain_type="stuff",
@@ -56,7 +56,7 @@ def fer_pregunta(qa_chain, pregunta: str):
     resultat = qa_chain.invoke({"query": pregunta})
     return resultat
 
-document = carregar_document("Documents/cannabis_info.txt")
+document = carregar_document("Documents/TDR Informació (1).txt")
 
 chunks = dividir_chunks(document)
 
@@ -66,7 +66,7 @@ llm = connectar_ollama()
 
 qa_chain = crear_RAG(llm, vectordb)
 
-pregunta = "Que li passa a una persona quan consumeix cannabis? Centra't en els efectes al moment de consumir, tant els bons com els dolents."
+pregunta = "Quin és el teu propòsit com a intel·ligència artificial? Sobre quines drogues tens informació i sobre quines no?"
 
 print("🟡 Pregunta enviada al model...")
 resultat = fer_pregunta(qa_chain, pregunta)
@@ -74,7 +74,7 @@ print("✅ Resposta rebuda!")
 print(resultat["result"])
 
 # Mostrem els fragments de text utilitzats pel model per respondre
-print("\n📚 Fragments utilitzats pel model:")
+print("\n Fragments utilitzats pel model:")
 for i, doc in enumerate(resultat["source_documents"]):
     print(f"\n--- Fragment {i+1} ---")
     print(doc.page_content[:1000])  # Mostra els primers 1000 caràcters del chunk
