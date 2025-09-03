@@ -5,11 +5,13 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter  #Divideix el
 from langchain_huggingface import HuggingFaceEmbeddings             #Utilitza models "SBERT" per convertir cada chunk en vector
 from langchain_chroma import Chroma                                 #S'encarrega de guardar els vectors
 
-from langchain_ollama import OllamaLLM                             #Envia prompts al model local
+from langchain_community.embeddings import OllamaEmbeddings                             #Envia prompts al model local
 
-from langchain.chains import LLMChain, RetrievalQA                            #Uneix el sistema de recuperació "Chroma" amb "Ollama" per poder fer preguntes
-from langchain.prompts import PromptTemplate                                   #Serveix per fer una explicació al model sobre com ha de respondre
-from langchain.chains.question_answering import load_qa_chain                  #També serveix per a fer la explicació al model de com respondre
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain.chains import create_retrieval_chain
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_ollama.llms import OllamaLLM
 
 # Carregar l'arxiu de text:
 def carregar_document(ruta_txt: str):                           #La part de str indica a VisualStudio que sera un "string" és a dir, text, per a que així pugui detectar els errors més facilment
@@ -56,37 +58,33 @@ def connectar_ollama(model: str = "llama3:8b"):
 def crear_RAG(llm, vectordb):
     retriever = vectordb.as_retriever(search_kwargs={"k": 3})             # Busca els troços de text més semblants a la pregunta
     
-    qa_prompt = PromptTemplate(
-        input_variables=["context", "question"],
-        template=(
-            "Ets un chatbot que t’encarregues de respondre preguntes com un assistent personal sobre drogues, el teu objectiu és informar a la gent per a que tingui el màxims coneixements possibles sobre com fer un consum el màxim de responsable de diferents substàncies"
-            "No comencis les respostes amb la frase “en el text diu”, has de parlar de la manera més humana possible, sempre amb la informació del text però com si la sapiguessis tu. I recorda que has de parlar com si fossis una persona que està responent una pregunta d’una"
-            "altra persona. Tota aquesta informació s’ha de proporcionar amb la única intenció de prevenir els riscos en cas que es decideixi prendre alguna substància, en cap cas s’ha de promoure l’ús ni recomanar-lo. Has de tenir en compte que tot i ser il·legals les substàncies es poden seguir consumint, per això has de repartir informació i coneixements."
-            "Has de respondre sempre en l'idioma en el que et fa la pregunta, normalment serà en català. NO responguis mai amb un idioma que no sigui el de la pregunta. Si hi ha alguna resposta que no saps, has de dir que no tens coneixements sobre el tema, en cap cas diguis que el text no ho menciona, ja que no has de parlar de cap text."
-            "Si no saps la resposta recomana buscar infomació a algun lloc fiable com ara Energy Control o algun professional mèdic."
-        )
-    )
+    qa_prompt = ChatPromptTemplate.from_template("""
+            Ets un chatbot que t’encarregues de respondre preguntes com un assistent personal sobre drogues, el teu objectiu és informar a la gent per a que tingui el màxims coneixements possibles sobre com fer un consum el màxim de responsable de diferents substàncies
+            No comencis les respostes amb la frase “en el text diu”, has de parlar de la manera més humana possible, sempre amb la informació del text però com si la sapiguessis tu. I recorda que has de parlar com si fossis una persona que està responent una pregunta d’una
+            altra persona. Tota aquesta informació s’ha de proporcionar amb la única intenció de prevenir els riscos en cas que es decideixi prendre alguna substància, en cap cas s’ha de promoure l’ús ni recomanar-lo. Has de tenir en compte que tot i ser il·legals les substàncies es poden seguir consumint, per això has de repartir informació i coneixements.
+            Has de respondre sempre en l'idioma en el que et fa la pregunta, normalment serà en català. NO responguis mai amb un idioma que no sigui el de la pregunta. Si hi ha alguna resposta que no saps, has de dir que no tens coneixements sobre el tema, en cap cas diguis que el text no ho menciona, ja que no has de parlar de cap text.
+            Si no saps la resposta recomana buscar infomació a algun lloc fiable com ara Energy Control o algun professional mèdic.
+            Context: {context}
+            Question: {input}
+            Answer: 
+            """
+            )
     
-    llm_chain = LLMChain(llm=llm, prompt=qa_prompt)   # Crea una cadena amb el prompt (la explicació) que acabem de definir
+    combinar_docs_chain = create_stuff_documents_chain(llm, qa_prompt)
     
-    combinacio_chains = load_qa_chain(llm, chain_type="stuff", prompt=qa_prompt)  # Crea una combinació de cadenes que utilitza el model i la explicació que hem definit
+    qa_chain = create_retrieval_chain(retriever, combinar_docs_chain)
     
-    qa_chain = RetrievalQA.from_chain_type(
-        retriever=retriever,
-        return_source_documents=True,
-        combinacio_chains=combinacio_chains,
-    )
     return qa_chain
 
 # Funció que fa la pregunta
 def fer_pregunta(qa_chain, pregunta: str):
-    resultat = qa_chain.invoke({"query": pregunta})
+    resultat = qa_chain.invoke({"input": pregunta})
     return resultat
 
 
 # Inicialitza la cadena de preguntes i respostes per a que es pugui executar des de chat.py més facilment
 def inizialitzar_cadena():
-    document = carregar_document("Documents/TDR Informació (1).txt")
+    document = carregar_document("Documents/TDR Informació.txt")
     chunks = dividir_chunks(document)
     vectordb = crear_carregar_vectors(chunks)
     llm = connectar_ollama()
@@ -95,7 +93,7 @@ def inizialitzar_cadena():
 
 
 if __name__ == "__main__":
-    document = carregar_document("Documents/TDR Informació (1).txt")
+    document = carregar_document("Documents/TDR Informació.txt")
     chunks = dividir_chunks(document)
     vectordb = crear_carregar_vectors(chunks)
     llm = connectar_ollama()
@@ -107,10 +105,10 @@ if __name__ == "__main__":
     print("Pregunta enviada al model...")
     resultat = fer_pregunta(qa_chain, pregunta)
     print("Resposta rebuda!")
-    print(resultat["result"])
+    print(resultat["answer"])
 
     # Mostrem els fragments de text utilitzats pel model per respondre
     print("\n Fragments utilitzats pel model:")
-    for i, doc in enumerate(resultat["source_documents"]):
+    for i, doc in enumerate(resultat["context"]):
         print(f"\n--- Fragment {i+1} ---")
         print(doc.page_content[:1000])  # Mostra els primers 1000 caràcters del chunk
