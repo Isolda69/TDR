@@ -22,7 +22,7 @@ def enviar_pregunta(): # Funció que s'executarà quan en la interfície s'envi�
          # Aquesta part es fa en paral·lel, per a que la interfície no sembli que s'ha quedat penjada
         def processar_pregunta(): # Aquesta funció es crida en paral·lel, per a que la interfície no sembli que s'ha quedat penjada
             resultat = fer_pregunta(qa_chain, pregunta) # Crea una variable resultat que conté la resposta a la pregunta
-            resposta_bot = resultat["result"] # Escriu la resposta del diccionari que ha creat el model
+            resposta_bot = resultat["answer"] # Escriu la resposta del diccionari que ha creat el model
             
             quadre_conversa.configure(state='normal') # Habilita el quadre de text per poder escriure
             quadre_conversa.delete("end-2l", "end-1l") # Esborra la línia on posava "Model pensant..."

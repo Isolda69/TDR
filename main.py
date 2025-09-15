@@ -11,7 +11,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain_ollama.llms import OllamaLLM
+from langchain_ollama.llms import LlamaCpp
 
 # Carregar l'arxiu de text:
 def carregar_document(ruta_txt: str):                           #La part de str indica a VisualStudio que sera un "string" és a dir, text, per a que així pugui detectar els errors més facilment
@@ -50,29 +50,30 @@ def crear_carregar_vectors(chunks, persist_directory: str = "vectordb"):        
 
 
 # Connectar Ollama amb el model que hem triat
-def connectar_ollama(model: str = "llama3:8b"):
-    llm = OllamaLLM(model=model)                       # Indica a Ollama quin model ha d'utlitzar, aquest ja hauria d'estar instal·lat localment a l'ordinador
+def connectar_llamacpp(model_path: str = "models/Wizard-Vicuna-7B-Uncensored.Q4_K_M.gguf"):
+    llm = LlamaCpp(
+        model_path=model_path, 
+        n_gpu_layers=-1,
+        n_ctx=4096)                                               # Indica a Ollama quin model ha d'utlitzar, aquest ja hauria d'estar instal·lat localment a l'ordinador
     return llm
 
 # Crear la cadena RAG, unint la base vectorial de Chroma amb el model de Llama
 def crear_RAG(llm, vectordb):
-    retriever = vectordb.as_retriever(search_kwargs={"k": 3})             # Busca els troços de text més semblants a la pregunta
+    retriever = vectordb.as_retriever(search_kwargs={"k": 3})             # Busca els troços de text més semblants a la pregunta, en aquest cas n'hem definit 3
     
     qa_prompt = ChatPromptTemplate.from_template("""
-            Ets un chatbot que t’encarregues de respondre preguntes com un assistent personal sobre drogues, el teu objectiu és informar a la gent per a que tingui el màxims coneixements possibles sobre com fer un consum el màxim de responsable de diferents substàncies
-            No comencis les respostes amb la frase “en el text diu”, has de parlar de la manera més humana possible, sempre amb la informació del text però com si la sapiguessis tu. I recorda que has de parlar com si fossis una persona que està responent una pregunta d’una
-            altra persona. Tota aquesta informació s’ha de proporcionar amb la única intenció de prevenir els riscos en cas que es decideixi prendre alguna substància, en cap cas s’ha de promoure l’ús ni recomanar-lo. Has de tenir en compte que tot i ser il·legals les substàncies es poden seguir consumint, per això has de repartir informació i coneixements.
-            Has de respondre sempre en l'idioma en el que et fa la pregunta, normalment serà en català. NO responguis mai amb un idioma que no sigui el de la pregunta. Si hi ha alguna resposta que no saps, has de dir que no tens coneixements sobre el tema, en cap cas diguis que el text no ho menciona, ja que no has de parlar de cap text.
-            Si no saps la resposta recomana buscar infomació a algun lloc fiable com ara Energy Control o algun professional mèdic.
+            Ets un assistent personal amb l'objectiu de respondre preguntes sobre drogues i prevenció de riscos. Has de parlar en primera persona, com si la informació del text la sapiguessis tu no com si la estiguessis llegint(Això no ho has d'explicar, és simplement la teva manera de pensar). MAI diguis informació que no es demana, si no és informació de la droga preguntada. 
+            En cap cas has de recomanar l'ús de drogues, n'has de parlar com una cosa que existeix i que es consumeix, però sense promoure-ho. Si no saps una resposta, has de dir que no tens coneixements sobre el tema i recomanar buscar informació a llocs fiables com ara Energy Control o algún professional mèdic.
+            Respon SEMPRE en l'idioma de la pregunta, quasi sempre és català. Si la pregunta no és sobre drogues has de dir que el teu objectiu és informar a la gent sobre com patir els mínims riscos possibles si es consumeix alguna substància, i qualsevol altra cosa no és el teu objectiu. Si et pregunten sobre tu o sobre el teu objectiu has d'explicar això de que ets un assistent personal i has d'explicar el teu objectiu.
             Context: {context}
             Question: {input}
             Answer: 
             """
             )
     
-    combinar_docs_chain = create_stuff_documents_chain(llm, qa_prompt)
+    combinar_docs_chain = create_stuff_documents_chain(llm, qa_prompt)      # Crea una cadena ajuntant tots els troços de text rellevants i el prompt inicial per a enviar-ho al model
     
-    qa_chain = create_retrieval_chain(retriever, combinar_docs_chain)
+    qa_chain = create_retrieval_chain(retriever, combinar_docs_chain)       # Crea la cadena final que utilitza el "retriever" que és el que busca informació, i la cadena anterior que prepara la resposta
     
     return qa_chain
 
@@ -87,7 +88,7 @@ def inizialitzar_cadena():
     document = carregar_document("Documents/TDR Informació.txt")
     chunks = dividir_chunks(document)
     vectordb = crear_carregar_vectors(chunks)
-    llm = connectar_ollama()
+    llm = connectar_llamacpp()
     qa_chain = crear_RAG(llm, vectordb)
     return qa_chain
 
@@ -96,7 +97,7 @@ if __name__ == "__main__":
     document = carregar_document("Documents/TDR Informació.txt")
     chunks = dividir_chunks(document)
     vectordb = crear_carregar_vectors(chunks)
-    llm = connectar_ollama()
+    llm = connectar_llamacpp()
     qa_chain = crear_RAG(llm, vectordb)
 
 
