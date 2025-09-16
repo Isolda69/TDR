@@ -11,7 +11,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain_ollama.llms import LlamaCpp
+from langchain_community.llms import LlamaCpp
 
 # Carregar l'arxiu de text:
 def carregar_document(ruta_txt: str):                           #La part de str indica a VisualStudio que sera un "string" és a dir, text, per a que així pugui detectar els errors més facilment
@@ -50,7 +50,7 @@ def crear_carregar_vectors(chunks, persist_directory: str = "vectordb"):        
 
 
 # Connectar Ollama amb el model que hem triat
-def connectar_llamacpp(model_path: str = "models/Wizard-Vicuna-7B-Uncensored.Q4_K_M.gguf"):
+def connectar_llamacpp(model_path: str = "Model/Wizard-Vicuna-7B-Uncensored.Q4_K_M.gguf"):
     llm = LlamaCpp(
         model_path=model_path, 
         n_gpu_layers=-1,
@@ -62,7 +62,7 @@ def crear_RAG(llm, vectordb):
     retriever = vectordb.as_retriever(search_kwargs={"k": 3})             # Busca els troços de text més semblants a la pregunta, en aquest cas n'hem definit 3
     
     qa_prompt = ChatPromptTemplate.from_template("""
-            Ets un assistent personal amb l'objectiu de respondre preguntes sobre drogues i prevenció de riscos. Has de parlar en primera persona, com si la informació del text la sapiguessis tu no com si la estiguessis llegint(Això no ho has d'explicar, és simplement la teva manera de pensar). MAI diguis informació que no es demana, si no és informació de la droga preguntada. 
+            Ets un assistent personal amb l'objectiu de respondre preguntes sobre drogues i la seva combinació i prevenció de riscos. Has de parlar en primera persona, com si la informació del text la sapiguessis tu no com si la estiguessis llegint(Això no ho has d'explicar, és simplement la teva manera de pensar). MAI diguis informació que no es demana, si no és informació de la droga preguntada. 
             En cap cas has de recomanar l'ús de drogues, n'has de parlar com una cosa que existeix i que es consumeix, però sense promoure-ho. Si no saps una resposta, has de dir que no tens coneixements sobre el tema i recomanar buscar informació a llocs fiables com ara Energy Control o algún professional mèdic.
             Respon SEMPRE en l'idioma de la pregunta, quasi sempre és català. Si la pregunta no és sobre drogues has de dir que el teu objectiu és informar a la gent sobre com patir els mínims riscos possibles si es consumeix alguna substància, i qualsevol altra cosa no és el teu objectiu. Si et pregunten sobre tu o sobre el teu objectiu has d'explicar això de que ets un assistent personal i has d'explicar el teu objectiu.
             Context: {context}
