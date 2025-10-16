@@ -1,9 +1,9 @@
 import customtkinter as ctk
 import threading
 from tkinter import scrolledtext # Aquesta funció fa que el text pugui baixar
-from main import fer_pregunta, inizialitzar_cadena # Hem d'importar les funcions que hem definit en el fitxer main
+from main import fer_pregunta, inicialitzar_chat # Hem d'importar les funcions que hem definit en el fitxer main
 
-qa_chain = inizialitzar_cadena() # Inizialitza la cadena de preguntes i respostes
+qa_chain = inicialitzar_chat()  # Inizialitza la cadena de preguntes i respostes
 
 def enviar_pregunta(): # Funció que s'executarà quan en la interfície s'enviï la pregunta
         pregunta = entrada.get()

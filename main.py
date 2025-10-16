@@ -30,8 +30,6 @@ def carregar_document(ruta_txt: str):                           #La part de str 
     return loader.load()                                   #Carrega el fitxer de text
 
 def format_mes_compacte(id_s, info, metadades):
-    """Formato LEGIBLE y a prueba de errores"""
-    
     try:
         nom = info.get("nom_cientific", "No especificat")
         
@@ -93,6 +91,24 @@ def crear_carregar_vectors(chunks, persist_directory: str = "vectordb"):        
 # Si el document amb la informació canvia, cal esborrar la carpeta on guarda els vectors i automàticament torna a procesar el nou document, sinó el reutilitza i va més ràpid
 # Per borrar la carpeta cal executar: rm -rf vectordb
 
+def carregar_vectordb():
+    embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+    vectordb = Chroma(persist_directory="vectordb", embedding_function=embedding_model)
+    return vectordb
+
+def inicialitzar_chat():
+    vectordb = carregar_vectordb()
+    llm = connectar_llamacpp()
+    qa_chain = crear_RAG(llm, vectordb)
+    #Preescalfament del model
+    print("Preescalfant el model...")
+    try:
+        fer_pregunta(qa_chain, "Hola")
+        print("Model preescalfat correctament!")
+    except Exception as e:
+        print(f"S'ha produït un error durant el preescalfament: {e}")
+    
+    return qa_chain
 
 # Connectar Ollama amb el model que hem triat
 def connectar_llamacpp(model_name: str = "mistral:7b"):
@@ -128,8 +144,13 @@ def crear_RAG(llm, vectordb):
     return qa_chain
 
 # Funció que fa la pregunta
+import time
 def fer_pregunta(qa_chain, pregunta: str):
+    start_time = time.time()
     resultat = qa_chain.invoke({"input": pregunta})
+    end_time = time.time()
+    #Per fer proves a veure quant tarda en respondre
+    print(f"Temps de resposta: {end_time - start_time:.2f} segons")
     return resultat
 
 
