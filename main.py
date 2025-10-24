@@ -156,7 +156,7 @@ def fer_pregunta(qa_chain, pregunta: str):                          # Li passem 
 
 # Inicialitza la cadena de preguntes i respostes per a que es pugui executar des de chat.py més facilment
 def inicialitzar_cadena():
-    document = carregar_document("Documents/TDR Informació.txt")
+    document = carregar_document("Documents/Informació_drogues.json")
     chunks = dividir_chunks(document)
     vectordb = crear_vectors(chunks)
     llm = connectar_llamacpp()
