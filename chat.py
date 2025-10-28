@@ -20,17 +20,12 @@ qa_chain = inicialitzar_chat()
 
 # Configurar la finestra principal
 root = ctk.CTk() # Crea la finestra que obrira
-root.geometry("1400x900") # Defineix la mida que tindrà la finestra
-root.title("💊 SafeTrip - Asistent en reducció de riscos en les droges") # Defineix el títol de la finestra
+root.geometry("1200x700") # Defineix la mida que tindrà la finestra
+root.title("💊 SafeTrip - Assistent en reducció de riscos en les droges") # Defineix el títol de la finestra
+ample = root.winfo_screenwidth() # Agafa l'amplada de la pantalla
+alt = root.winfo_screenheight() # Agafa l'alçada de la pantalla
+root.geometry(f"{ample}x{alt}+0+0") # Fes que la finestra ocupi tota la pantalla
 root.configure(fg_color=Color_fons) # Defineix el color de fons de la finestra
-
-# Centrar la finestra a la pantalla
-root.update_idletasks() # Actualitza les tasques pendents de la finestra
-amplada = root.winfo_width() # Agafa l'amplada de la finestra
-height = root.winfo_height() # Agafa l'alçada de la finestra
-x = (root.winfo_screenwidth() // 2) - (amplada // 2) # Calcula la posició x per centrar la finestra
-y = (root.winfo_screenheight() // 2) - (height // 2) # Calcula la posició y per centrar la finestra
-root.geometry(f"+{x}+{y}") # Defineix la posició de la finestra
 
 # Crear marc decoratiu amb cantonades arrodonides, que contindrà tots els elements de la interfície
 marc_principal = ctk.CTkFrame(
@@ -45,7 +40,7 @@ marc_principal.pack(padx=20, pady=20, fill="both", expand=True) # Posa marges al
 # Posar el títol bonic
 titol = ctk.CTkLabel(
     marc_principal, # Defineix que el títol està dins del marc principal
-    text="💊 SafeTrip - Asistent en reducció de riscos en les droges",
+    text="💊 SafeTrip - Assistent en reducció de riscos en les droges",
     font=("Arial", 24, "bold"), # Defineix la font del títol
     text_color=Color_text, # Defineix el color del text del títol
     fg_color=Color_secundari, # Defineix el color de fons del títol
@@ -64,22 +59,20 @@ subtitol = ctk.CTkLabel(
     corner_radius=15, # Defineix el radi de les cantonades arrodonides del subtítol
     height=30 # Defineix l'alçada del subtítol
 )
-subtitol.pack(padx=20, pady=(0, 20), fill="x") # Posa marges al subtítol i fa que s'ajusti a l'amplada
+subtitol.pack(padx=20, pady=(0, 15), fill="x") # Posa marges al subtítol i fa que s'ajusti a l'amplada
 
 # Crea el quadre de conversa
 quadre_conversa = scrolledtext.ScrolledText(
     marc_principal, # Defineix que el quadre de conversa està dins del marc principal
     wrap="word", # Fa que el text s'ajusti a l'amplada del quadre
-    width=120, # Defineix l'amplada del quadre de conversa
-    height=30, # Defineix l'alçada del quadre de conversa
     state='disabled', # Fa que el quadre de conversa no es pugui editar directament
     font=("Arial", 12), # Defineix la font del text del quadre de conversa
     bg=Color_fons, # Defineix el color de fons del quadre de conversa
     fg=Color_text, # Defineix el color del text del quadre de conversa
     relief="flat", # Defineix que el quadre de conversa no tingui rellef
     borderwidth=10, # Defineix l'amplada de la vora del quadre de conversa
-    padx=15, # Defineix els marges horitzontals del text dins del quadre de conversa
-    pady=15 # Defineix els marges verticals del text dins del quadre de conversa
+    padx=12, # Defineix els marges horitzontals del text dins del quadre de conversa
+    pady=12 # Defineix els marges verticals del text dins del quadre de conversa
 )
 quadre_conversa.pack(padx=20, pady=10, fill="both", expand=True) # Posa marges al quadre de conversa i fa que s'ajusti a la finestra
 
@@ -113,7 +106,6 @@ marc_entrada.pack(padx=20, pady=10, fill="x") # Posa marges al marc i fa que s'a
 # Entrada de text per la pregunta
 entrada = ctk.CTkEntry(
     marc_entrada, # Defineix que l'entrada està dins del marc d'entrada
-    width=800, # Defineix l'amplada de l'entrada
     height=45, # Defineix l'alçada de l'entrada
     font=("Arial", 14), # Defineix la font del text de l'entrada
     fg_color="#FFFFFF", # Defineix el color de fons de l'entrada
@@ -123,7 +115,7 @@ entrada = ctk.CTkEntry(
     corner_radius=20, # Defineix el radi de les cantonades arrodonides de l'entrada
     placeholder_text="💭 Escriu la teva pregunta...", # Text que apareix quan l'entrada està buida
 )
-entrada.pack(padx=10, pady=10, side="left", fill="x", expand=True) # Posa marges a l'entrada i fa que s'ajusti a l'amplada del marc
+entrada.pack(padx=(20, 10), pady=12, side="left", fill="x", expand=True) # Posa marges a l'entrada i fa que s'ajusti a l'amplada del marc
 
 # Botó per enviar la pregunta
 boto_enviar = ctk.CTkButton(
@@ -141,17 +133,17 @@ boto_enviar = ctk.CTkButton(
     command=lambda: enviar_pregunta() # Crida la funció enviar_pregunta quan es prem el botó
 )
 entrada.bind("<Return>", lambda event: enviar_pregunta()) # Fa que quan l'usuari premi la tecla Enter, s'enviï la pregunta         
-boto_enviar.pack(padx=(10, 20), pady=10, side="right") # Posa marges al botó i el situa a la dreta del marc
+boto_enviar.pack(padx=(10, 20), pady=12, side="right") # Posa marges al botó i el situa a la dreta del marc
 
 # Barra inferior amb missatge d'emercgència
 barra_inferior = ctk.CTkLabel(
     marc_principal, # Defineix que la barra inferior està dins del marc principal
     text="Si tens alguna emergència contacta amb els serveis mèdics d'urgència: 112. Pots consultar més informació a Energy Control: https://energycontrol.org/",
-    font=("Arial", 12),
+    font=("Arial", 12, "bold"),
     text_color="#FFFFFF",
     fg_color=Color_fosc,
     corner_radius=15,
-    height=35
+    height=30
 )
 barra_inferior.pack(padx=20, pady=(10, 20), fill="x")
 
@@ -162,7 +154,9 @@ def enviar_pregunta(): # Funció que s'executa quan l'usuari prem el botó d'env
         if pregunta.strip() == "": # Si la preguta està buida, no retorna res
             return
         
-        if "Benvingut/da a SafeTrip!" in quadre_conversa.get(1.0, ctk.END): quadre_conversa.configure(state='normal') or quadre_conversa.delete(1.0, ctk.END) # Esborra el missatge de benvinguda si és la primera pregunta
+        if "Benvingut/da a SafeTrip!" in quadre_conversa.get(1.0, ctk.END):
+            quadre_conversa.configure(state='normal')
+            quadre_conversa.delete(1.0, ctk.END) # Esborra el missatge de benvinguda si és la primera pregunta
         
         quadre_conversa.configure(state='normal') # Habilita el quadre de text per poder escriure
         
