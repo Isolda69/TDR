@@ -12,10 +12,10 @@ from langchain_ollama import OllamaLLM
 import time
 
 # Carregar l'arxiu de text:
-def carregar_document(ruta_txt: str):                               #La part de str indica a VisualStudio que sera un "string" és a dir, text, per a que així pugui detectar els errors més facilment
-    if ruta_txt.endswith('.json'):                             #Si el fitxer és un json, utilitza aquesta part del codi
-        with open(ruta_txt, 'r', encoding='utf-8') as f:                                     #Retorna la llista de documents
-            dades = json.load(f)                                                                 #Carrega el fitxer json
+def carregar_document(ruta_txt: str):                               # La part de str indica a VisualStudio que serà un "string" és a dir, text, perquè així pugui detectar els errors més fàcilment
+    if ruta_txt.endswith('.json'):                             # Si el fitxer és un json, utilitza aquesta part del codi
+        with open(ruta_txt, 'r', encoding='utf-8') as f:                                     # Retorna la llista de documents
+            dades = json.load(f)                                                                 # Carrega el fitxer json
         substancies = dades.get("substancies", {})
         metadades = dades.get("metadades", {})
         documents = []
@@ -24,8 +24,8 @@ def carregar_document(ruta_txt: str):                               #La part de 
             documents.append(Document(page_content=contingut))
         return documents
     
-    loader = TextLoader(ruta_txt, encoding='utf-8')                 #Crea una variable que sap llegir l'arxiu, la part d'encodig fa que entengui més tipus de caràcters
-    documents = loader.load()                                       #Carrega el contingut de l’arxiu en una llista de documents
+    loader = TextLoader(ruta_txt, encoding='utf-8')                 # Crea una variable que sap llegir l'arxiu, la part d'encodig fa que entengui més tipus de caràcters
+    documents = loader.load()                                       # Carrega el contingut de l’arxiu en una llista de documents
     return documents
 
 def format_mes_compacte(id_s, info, metadades):
@@ -33,28 +33,28 @@ def format_mes_compacte(id_s, info, metadades):
         nom = info.get("nom_cientific", "No especificat")
         
         # Efectos positivos
-        efectos_pos = info.get("efectes_desitjats_curt", [])
-        if isinstance(efectos_pos, list) and efectos_pos:
-            efectos_pos_str = ", ".join(efectos_pos[:3])
+        efectes_pos = info.get("efectes_desitjats_curt", [])
+        if isinstance(efectes_pos, list) and efectes_pos:
+            efectes_pos_str = ", ".join(efectes_pos[:3])
         else:
-            efectos_pos_str = "efectes variables"
+            efectes_pos_str = "efectes variables"
         
         # Efectos negativos  
-        efectos_neg = info.get("efectes_no_desitjats_curt", [])
-        if isinstance(efectos_neg, list) and efectos_neg:
-            efectos_neg_str = ", ".join(efectos_neg[:3])
+        efectes_neg = info.get("efectes_no_desitjats_curt", [])
+        if isinstance(efectes_neg, list) and efectes_neg:
+            efectes_neg_str = ", ".join(efectes_neg[:3])
         else:
-            efectos_neg_str = "efectes variables"
+            efectes_neg_str = "efectes variables"
         
         dosi = info.get("dosi", "No especificada")
         durada = info.get("durada_efectes", "No especificada")
         
         # Texto natural
-        texto = f"{id_s.capitalize()} ({nom}): Produeix {efectos_pos_str}. "
-        texto += f"Efectes negatius: {efectos_neg_str}. "
-        texto += f"Dosi: {dosi}. Durada: {durada}."
+        text = f"{id_s.capitalize()} ({nom}): Produeix {efectes_pos_str}. "
+        text += f"Efectes negatius: {efectes_neg_str}. "
+        text += f"Dosi: {dosi}. Durada: {durada}."
         
-        return texto
+        return text
         
     except Exception as e:
         # Fallback seguro
@@ -63,7 +63,7 @@ def format_mes_compacte(id_s, info, metadades):
 
 
 # Dividir el text en fragments més petits "chunks":
-def dividir_chunks(documents, chunk_size: int = 1500, chunk_overlap: int = 200):         # La superposicio indica que el seguent fragment agafi els últims 200 caràcters per tal de no tallar frases per la meitat
+def dividir_chunks(documents, chunk_size: int = 1500, chunk_overlap: int = 200):         # La superposició indica que el següent fragment agafi els últims 200 caràcters per tal de no tallar frases per la meitat
     splitter = RecursiveCharacterTextSplitter(                                           # Separa el text segons el que haguem definit en els paràmetres
         chunk_size = chunk_size,                                                         # Defineix la mida indicada en el paràmetre
         chunk_overlap = chunk_overlap                                                    # Defineix la superposició indicada en el paràmetre
@@ -86,8 +86,8 @@ def crear_vectors(chunks, persist_directory: str = "vectordb"):                 
             embedding=embedding_model,                                                              # Indica el model que s'ha d'utilitzar per crear els vectors
             persist_directory=persist_directory                                                     # Indica la carpeta on guardar els fitxers
         )                                                                          
-    return vectordb                                                                                 # Això el que retorna és la ubicació on Chroma ha guardat aquests vectors
-# Si el document amb la informació canvia, cal esborrar la carpeta on guarda els vectors i automàticament torna a procesar el nou document, sinó el reutilitza i va més ràpid
+    return vectordb                                                                                 # Això retorna la ubicació on Chroma ha guardat aquests vectors
+# Si el document amb la informació canvia, cal esborrar la carpeta on guarda els vectors i automàticament torna a processar el nou document, sinó el reutilitza i va més ràpid
 # Per borrar la carpeta cal executar: "rm -rf vectordb"
 
 # Carregar la base de dades vectorial existent, només la podem utilitzar si sabem segur que ja ha estat creada, sinó hi haurà un error
@@ -100,7 +100,7 @@ def inicialitzar_chat():
     vectordb = carregar_vectordb()
     llm = connectar_llamacpp()
     qa_chain = crear_RAG(llm, vectordb)
-    #Preescalfament del model
+    # Preescalfament del model
     print("Preescalfant el model...")
     try:
         fer_pregunta(qa_chain, "Hola")
@@ -154,7 +154,7 @@ def fer_pregunta(qa_chain, pregunta: str):                          # Li passem 
     return resultat
 
 
-# Inicialitza la cadena de preguntes i respostes per a que es pugui executar des de chat.py més facilment
+# Inicialitza la cadena de preguntes i respostes perquè es pugui executar des de chat.py més fàcilment
 def inicialitzar_cadena():
     document = carregar_document("Documents/Informació_drogues.json")
     chunks = dividir_chunks(document)
@@ -163,22 +163,3 @@ def inicialitzar_cadena():
     qa_chain = crear_RAG(llm, vectordb)
     return qa_chain
 
-
-if __name__ == "__main__":
-    document = carregar_document("Documents/deepseek_json_20251002_c19308.json")
-    chunks = dividir_chunks(document)
-    vectordb = crear_vectors(chunks)
-    llm = connectar_llamacpp()
-    qa_chain = crear_RAG(llm, vectordb)
-
-    # Prueba con diferentes tipos de preguntas
-    preguntas = [
-        "Quins són els efectes del cannabis?",
-        "Quina és la dosi de cocaïna?",
-        "Què passa si barrejo alcohol amb cocaïna?"
-    ]
-    
-    for pregunta in preguntas:
-        print(f"\n🧪 PROVA: {pregunta}")
-        resultat = fer_pregunta(qa_chain, pregunta)
-        print(f"✅ RESPOSTA: {resultat['answer'][:500]}...")  # Muestra primeros 500 chars
