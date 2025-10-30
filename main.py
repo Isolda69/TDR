@@ -29,22 +29,22 @@ def carregar_document(ruta_txt: str):                               # La part de
     return documents
 
 def format_mes_compacte(id_s, info, metadades):
-    try:
-        nom = info.get("nom_cientific", "No especificat")
+    try:                                                            # Prova d'executar aquesta part, si no funciona executarà l'"except"
+        nom = info.get("nom_cientific", "No especificat")           # Guarda en la variable "nom" el nom de la substància, si no el troba l'estableix com a no especificat
         
-        # Efectos positivos
-        efectes_pos = info.get("efectes_desitjats_curt", [])
-        if isinstance(efectes_pos, list) and efectes_pos:
-            efectes_pos_str = ", ".join(efectes_pos[:3])
+        # Efectes desitjats a curt termini
+        efectes_pos = info.get("efectes_desitjats_curt", [])        # Busca els efectes desitjats a curt termini i si no els troba els estableix com una llista buida
+        if isinstance(efectes_pos, list) and efectes_pos:           # Comporva que hi hagi efectes positius i dins aquest condicional mira si són una llista
+            efectes_pos_str = ", ".join(efectes_pos[:3])            # En cas que ho siguin agafa només els tres primers elements i els ajunta amb comes
         else:
-            efectes_pos_str = "efectes variables"
+            efectes_pos_str = "efectes variables"                   # Si no és una llista o aquesta està buida, defineix els efectes com si fossin variables
         
-        # Efectos negativos  
-        efectes_neg = info.get("efectes_no_desitjats_curt", [])
-        if isinstance(efectes_neg, list) and efectes_neg:
-            efectes_neg_str = ", ".join(efectes_neg[:3])
+        # Efectos no desitjats a curt termini  
+        efectes_neg = info.get("efectes_no_desitjats_curt", [])    # Busca els efectes no desitjats a curt termini i si no els troba els estableix com una llista buida
+        if isinstance(efectes_neg, list) and efectes_neg:          # Comprova que n'hi hagi i que siguin una llista
+            efectes_neg_str = ", ".join(efectes_neg[:3])           # Si son una llista, n'agafa els tres primers
         else:
-            efectes_neg_str = "efectes variables"
+            efectes_neg_str = "efectes variables"                  # En cas que no n'hi hagi, posa que són variables
         
         dosi = info.get("dosi", "No especificada")
         durada = info.get("durada_efectes", "No especificada")
