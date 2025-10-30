@@ -39,7 +39,7 @@ def format_mes_compacte(id_s, info, metadades):
         else:
             efectes_pos_str = "efectes variables"                   # Si no és una llista o aquesta està buida, defineix els efectes com si fossin variables
         
-        # Efectos no desitjats a curt termini  
+        # Efectes no desitjats a curt termini  
         efectes_neg = info.get("efectes_no_desitjats_curt", [])    # Busca els efectes no desitjats a curt termini i si no els troba els estableix com una llista buida
         if isinstance(efectes_neg, list) and efectes_neg:          # Comprova que n'hi hagi i que siguin una llista
             efectes_neg_str = ", ".join(efectes_neg[:3])           # Si són una llista, n'agafa els tres primers
