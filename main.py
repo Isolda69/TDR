@@ -11,7 +11,7 @@ from langchain.chains import create_retrieval_chain
 from langchain_ollama import OllamaLLM
 import time
 
-# Carregar l'arxiu de text:
+# Carregar el fitxer de text:
 def carregar_document(ruta_txt: str):                               # La part de str indica a VisualStudio que serà un "string" és a dir, text, perquè així pugui detectar els errors més fàcilment
     if ruta_txt.endswith('.json'):                                  # Si el fitxer és un json, utilitza aquesta part del codi
         with open(ruta_txt, 'r', encoding='utf-8') as f:            # Obre el fitxer i el guarda a la variable "f"
@@ -19,13 +19,13 @@ def carregar_document(ruta_txt: str):                               # La part de
         substancies = dades.get("substancies", {})                  # Extreu els valors de cada substància, si no hi ha la clau substàncies, retorna un diccionari buit
         metadades = dades.get("metadades", {})                      # Extreu els valors de les metadades, si no hi ha la clau metadades, retorna un diccionari buit
         documents = []                                              # Crea la llista que al final tindrà totes les dades ben estructurades i amb text normal
-        for id_s, info in substancies.items():                      # Recorre un bucle per cada una de les substàncies i en guadra el nom i l'infomació per separat
-            contingut = format_mes_compacte(id_s, info, metadades)  # Amb la funció que extreu la sintaxi, netegem la informació de cada element
+        for id_s, info in substancies.items():                      # Recorre un bucle per cada una de les substàncies i en guarda el nom i la infomació per separat
+            contingut = format_mes_compacte(id_s, info, metadades)  # Amb la funció que extreu l'estructura, netegem la informació de cada element
             documents.append(Document(page_content=contingut))      # Anem afegint cada substància a la llista final
-        return documents                                            # Si es un fitxer JSON, ja retorna la llista aquí i no farà les dues comandes següents, que són en cas que sigui un fitxer TXT
+        return documents                                            # Si és un fitxer JSON, ja retorna la llista aquí i no farà les dues comandes següents, que són en cas que sigui un fitxer TXT
     
-    loader = TextLoader(ruta_txt, encoding='utf-8')                 # Crea una variable que sap llegir l'arxiu, la part d'encodig fa que entengui més tipus de caràcters
-    documents = loader.load()                                       # Carrega el contingut de l’arxiu en una llista de documents
+    loader = TextLoader(ruta_txt, encoding='utf-8')                 # Crea una variable que sap llegir el fitxer, la part d'encoding fa que entengui més tipus de caràcters
+    documents = loader.load()                                       # Carrega el contingut de el fitxer en una llista de documents
     return documents
 
 def format_mes_compacte(id_s, info, metadades):
@@ -34,7 +34,7 @@ def format_mes_compacte(id_s, info, metadades):
         
         # Efectes desitjats a curt termini
         efectes_pos = info.get("efectes_desitjats_curt", [])        # Busca els efectes desitjats a curt termini i si no els troba els estableix com una llista buida
-        if isinstance(efectes_pos, list) and efectes_pos:           # Comporva que hi hagi efectes positius i dins aquest condicional mira si són una llista
+        if isinstance(efectes_pos, list) and efectes_pos:           # Comprova que hi hagi efectes positius i dins aquest condicional mira si són una llista
             efectes_pos_str = ", ".join(efectes_pos[:3])            # En cas que ho siguin agafa només els tres primers elements i els ajunta amb comes
         else:
             efectes_pos_str = "efectes variables"                   # Si no és una llista o aquesta està buida, defineix els efectes com si fossin variables
@@ -42,16 +42,16 @@ def format_mes_compacte(id_s, info, metadades):
         # Efectos no desitjats a curt termini  
         efectes_neg = info.get("efectes_no_desitjats_curt", [])    # Busca els efectes no desitjats a curt termini i si no els troba els estableix com una llista buida
         if isinstance(efectes_neg, list) and efectes_neg:          # Comprova que n'hi hagi i que siguin una llista
-            efectes_neg_str = ", ".join(efectes_neg[:3])           # Si son una llista, n'agafa els tres primers
+            efectes_neg_str = ", ".join(efectes_neg[:3])           # Si són una llista, n'agafa els tres primers
         else:
             efectes_neg_str = "efectes variables"                  # En cas que no n'hi hagi, posa que són variables
         
-        dosi = info.get("dosi", "No especificada")                 # Busca la dosi la substància, si no la troba ho indica
+        dosi = info.get("dosi", "No especificada")                 # Busca la dosi de la substància, si no la troba ho indica
         durada = info.get("durada_efectes", "No especificada")     # Busca la durada dels efectes i si no n'hi ha ho diu
         
         # Text natural
-        text = f"{id_s.capitalize()} ({nom}): Produeix {efectes_pos_str}. "    # Posa la primera lletra del nom en majúscula, li posa dos punt i la paraula "Produeix" seguit dels efectes 
-        text += f"Efectes negatius: {efectes_neg_str}. "                       # Afegeix a la frase d'abans les paraules "Efectes negatius" seguit dels efectes negatius
+        text = f"{id_s.capitalize()} ({nom}): Produeix {efectes_pos_str}. "    # Posa la primera lletra del nom en majúscula, li posa dos punt i la paraula "Produeix" seguida dels efectes 
+        text += f"Efectes negatius: {efectes_neg_str}. "                       # Afegeix a la frase d'abans les paraules "Efectes negatius" seguides dels efectes negatius
         text += f"Dosi: {dosi}. Durada: {durada}."                             # Afegeix la dosi i la durada indicant-ho amb les paraules
         
         return text                                                            # Retorna la frase completa que conté totes les parts però en una afirmació curta
