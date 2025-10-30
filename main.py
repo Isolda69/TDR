@@ -13,16 +13,16 @@ import time
 
 # Carregar l'arxiu de text:
 def carregar_document(ruta_txt: str):                               # La part de str indica a VisualStudio que serà un "string" és a dir, text, perquè així pugui detectar els errors més fàcilment
-    if ruta_txt.endswith('.json'):                             # Si el fitxer és un json, utilitza aquesta part del codi
-        with open(ruta_txt, 'r', encoding='utf-8') as f:                                     # Retorna la llista de documents
-            dades = json.load(f)                                                                 # Carrega el fitxer json
-        substancies = dades.get("substancies", {})
-        metadades = dades.get("metadades", {})
-        documents = []
-        for id_s, info in substancies.items():
-            contingut = format_mes_compacte(id_s, info, metadades)
-            documents.append(Document(page_content=contingut))
-        return documents
+    if ruta_txt.endswith('.json'):                                  # Si el fitxer és un json, utilitza aquesta part del codi
+        with open(ruta_txt, 'r', encoding='utf-8') as f:            # Obre el fitxer i el guarda a la variable "f"
+            dades = json.load(f)                                    # Guardem totes les dades en un diccionari                            
+        substancies = dades.get("substancies", {})                  # Extreu els valors de cada substància, si no hi ha la clau substàncies, retorna un diccionari buit
+        metadades = dades.get("metadades", {})                      # Extreu els valors de les metadades, si no hi ha la clau metadades, retorna un diccionari buit
+        documents = []                                              # Crea la llista que al final tindrà totes les dades ben estructurades i amb text normal
+        for id_s, info in substancies.items():                      # Recorre un bucle per cada una de les substàncies i en guadra el nom i l'infomació per separat
+            contingut = format_mes_compacte(id_s, info, metadades)  # Amb la funció que extreu la sintaxi, netegem la informació de cada element
+            documents.append(Document(page_content=contingut))      # Anem afegint cada substància a la llista final
+        return documents                                            # Si es un fitxer JSON, ja retorna la llista aquí i no farà les dues comandes següents, que són en cas que sigui un fitxer TXT
     
     loader = TextLoader(ruta_txt, encoding='utf-8')                 # Crea una variable que sap llegir l'arxiu, la part d'encodig fa que entengui més tipus de caràcters
     documents = loader.load()                                       # Carrega el contingut de l’arxiu en una llista de documents
