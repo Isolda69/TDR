@@ -46,19 +46,18 @@ def format_mes_compacte(id_s, info, metadades):
         else:
             efectes_neg_str = "efectes variables"                  # En cas que no n'hi hagi, posa que són variables
         
-        dosi = info.get("dosi", "No especificada")
-        durada = info.get("durada_efectes", "No especificada")
+        dosi = info.get("dosi", "No especificada")                 # Busca la dosi la substància, si no la troba ho indica
+        durada = info.get("durada_efectes", "No especificada")     # Busca la durada dels efectes i si no n'hi ha ho diu
         
-        # Texto natural
-        text = f"{id_s.capitalize()} ({nom}): Produeix {efectes_pos_str}. "
-        text += f"Efectes negatius: {efectes_neg_str}. "
-        text += f"Dosi: {dosi}. Durada: {durada}."
+        # Text natural
+        text = f"{id_s.capitalize()} ({nom}): Produeix {efectes_pos_str}. "    # Posa la primera lletra del nom en majúscula, li posa dos punt i la paraula "Produeix" seguit dels efectes 
+        text += f"Efectes negatius: {efectes_neg_str}. "                       # Afegeix a la frase d'abans les paraules "Efectes negatius" seguit dels efectes negatius
+        text += f"Dosi: {dosi}. Durada: {durada}."                             # Afegeix la dosi i la durada indicant-ho amb les paraules
         
-        return text
+        return text                                                            # Retorna la frase completa que conté totes les parts però en una afirmació curta
         
     except Exception as e:
-        # Fallback seguro
-        return f"{id_s}: Informació disponible sobre aquesta substància."
+        return f"{id_s}: Informació disponible sobre aquesta substància."      # Això només s'executa si falla alguna part del codi anterior, torna el nom de la substància i un missatge bàsic
 
 
 
