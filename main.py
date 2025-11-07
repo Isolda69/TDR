@@ -16,7 +16,7 @@ def carregar_document(ruta_txt: str):                               # La part de
     if ruta_txt.endswith('.json'):                                  # Si el fitxer és un json, utilitza aquesta part del codi
         with open(ruta_txt, 'r', encoding='utf-8') as f:            # Obre el fitxer i el guarda a la variable "f"
             dades = json.load(f)                                    # Guardem totes les dades en un diccionari                            
-        substancies = dades.get("substancies", {})                  # Extreu els valors de cada substància, si no hi ha la clau substàncies, retorna un diccionari buit
+        substancies = dades.get("substàncies", {})                  # Extreu els valors de cada substància, si no hi ha la clau substàncies, retorna un diccionari buit
         metadades = dades.get("metadades", {})                      # Extreu els valors de les metadades, si no hi ha la clau metadades, retorna un diccionari buit
         documents = []                                              # Crea la llista que al final tindrà totes les dades ben estructurades i amb text normal
         for id_s, info in substancies.items():                      # Recorre un bucle per cada una de les substàncies i en guarda el nom i la infomació per separat
@@ -95,22 +95,22 @@ def carregar_vectordb():                                                        
     vectordb = Chroma(persist_directory="vectordb", embedding_function=embedding_model)             # Carrega la base de dades vectorial que ja existeix a la carpeta "vectordb"
     return vectordb
 
-def inicialitzar_chat():
-    vectordb = carregar_vectordb()
-    llm = connectar_llamacpp()
-    qa_chain = crear_RAG(llm, vectordb)
-    # Preescalfament del model
-    print("Preescalfant el model...")
-    try:
-        fer_pregunta(qa_chain, "Hola")
-        print("Model preescalfat correctament!")
-    except Exception as e:
-        print(f"S'ha produït un error durant el preescalfament: {e}")
+# Inicialitza tot el sistema abans de començar a fer preguntes
+def preescalfament():
+    vectordb = carregar_vectordb()                                      # Carrega la base de dades vectorial existent
+    llm = connectar_ollama()                                            # Connecta amb el model d'Ollama
+    qa_chain = crear_RAG(llm, vectordb)                                 # Uneix el model amb la base de dades vectorial per crear el sistema RAG
+    print("Preescalfant el model...")                                   # Imprimeix un missatge per indicar que està preescalfant el model
+    try:                                                                # Prova d'executar aquesta part, si no funciona executarà l'"except", per tal de detectar errors
+        fer_pregunta(qa_chain, "Hola")                                  # Fa una pregunta senzilla per preescalfar el model
+        print("Model preescalfat correctament!")                        # Imprimeix un missatge per indicar que el preescalfament ha anat bé
+    except Exception as e:                                              # Si hi ha algun error en el preescalfament, imprimeix un missatge indicant que hi ha un error
+        print(f"S'ha produït un error durant el preescalfament: {e}")   # Imprimeix l'error que s'ha produït
     
     return qa_chain
 
 # Connectar Ollama amb el model que hem triat i instal·lat localment:
-def connectar_llamacpp(model_name: str = "mistral:7b"):                   # En el paràmetre indiquem el nom del model que volem utilitzar
+def connectar_ollama(model_name: str = "mistral:7b"):                   # En el paràmetre indiquem el nom del model que volem utilitzar
     llm = OllamaLLM(                                                      # Crea la connexió amb Ollama
         model=model_name,                                                 # Indica quin model s'ha d'utilitzar
         temperature=0.3,                                                  # Defineix la temperatura del model, com més alta més creatiu serà el model
@@ -131,7 +131,7 @@ def crear_RAG(llm, vectordb):
 
         Instruccions:
         - Respon de manera clara i concisa.
-        - Al final de la resposta, afegeix: "Recorda que la manera més segura d'evitar riscos és no consumir. Si decideixes consumir, informa't sempre i analitza la substància amb Energy Control per coneixer la seva composició real."
+        - Al final de la resposta, afegeix: "Recorda que la manera més segura d'evitar riscos és no consumir. Si decideixes consumir, informa't sempre i analitza la substància amb Energy Control per conèixer la seva composició real."
 
         Resposta:
         """
@@ -155,10 +155,10 @@ def fer_pregunta(qa_chain, pregunta: str):                          # Li passem 
 
 # Inicialitza la cadena de preguntes i respostes perquè es pugui executar des de chat.py més fàcilment
 def inicialitzar_cadena():
-    document = carregar_document("Documents/Informació_drogues.json")
-    chunks = dividir_chunks(document)
-    vectordb = crear_vectors(chunks)
-    llm = connectar_llamacpp()
-    qa_chain = crear_RAG(llm, vectordb)
-    return qa_chain
+    document = carregar_document("Documents/Informació_drogues.json")       # Carrega el document amb la informació
+    chunks = dividir_chunks(document)                                       # Crea els chunks a partir del document
+    vectordb = crear_vectors(chunks)                                        # Crea la base de dades vectorial a partir dels chunks
+    llm = connectar_ollama()                                                # Connecta amb el model d'Ollama
+    qa_chain = crear_RAG(llm, vectordb)                                     # Uneix el model amb la base de dades vectorial per crear el sistema RAG
+    return qa_chain                                                         # Retorna la cadena completa perquè es pugui utilitzar en altres fitxers
 

@@ -1,7 +1,7 @@
 import customtkinter as ctk
 import threading
 from tkinter import scrolledtext                    # Aquesta funció fa que el text pugui baixar
-from main import fer_pregunta, inicialitzar_chat    # Hem d'importar les funcions que hem definit en el fitxer main
+from main import fer_pregunta, preescalfament    # Hem d'importar les funcions que hem definit en el fitxer main
 
 # Configurar aparença de la interfície
 ctk.set_appearance_mode("light")            # Defineix el mode clar 
@@ -15,7 +15,7 @@ Color_fons = "#FFF0F5"                    # Rosa molt clar
 
 
 # Inicialitza la cadena de preguntes i respostes
-qa_chain = inicialitzar_chat()  
+qa_chain = preescalfament()  
 
 
 # Configurar la finestra principal
