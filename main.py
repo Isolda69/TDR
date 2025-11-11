@@ -161,4 +161,3 @@ def inicialitzar_cadena():
     llm = connectar_ollama()                                                # Connecta amb el model d'Ollama
     qa_chain = crear_RAG(llm, vectordb)                                     # Uneix el model amb la base de dades vectorial per crear el sistema RAG
     return qa_chain                                                         # Retorna la cadena completa perquè es pugui utilitzar en altres fitxers
-
