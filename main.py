@@ -16,7 +16,7 @@ def carregar_document(ruta_txt: str):                               # La part de
     if ruta_txt.endswith('.json'):                                  # Si el fitxer és un json, utilitza aquesta part del codi
         with open(ruta_txt, 'r', encoding='utf-8') as f:            # Obre el fitxer i el guarda a la variable "f"
             dades = json.load(f)                                    # Guardem totes les dades en un diccionari                            
-        substancies = dades.get("substàncies", {})                  # Extreu els valors de cada substància, si no hi ha la clau substàncies, retorna un diccionari buit
+        substancies = dades.get("substancies", {})                  # Extreu els valors de cada substància, si no hi ha la clau substàncies, retorna un diccionari buit
         metadades = dades.get("metadades", {})                      # Extreu els valors de les metadades, si no hi ha la clau metadades, retorna un diccionari buit
         documents = []                                              # Crea la llista que al final tindrà totes les dades ben estructurades i amb text normal
         for id_s, info in substancies.items():                      # Recorre un bucle per cada una de les substàncies i en guarda el nom i la infomació per separat
@@ -29,37 +29,59 @@ def carregar_document(ruta_txt: str):                               # La part de
     return documents
 
 def format_mes_compacte(id_s, info, metadades):
-    try:                                                            # Prova d'executar aquesta part, si no funciona executarà l'"except"
-        nom = info.get("nom_cientific", "No especificat")           # Guarda en la variable "nom" el nom de la substància, si no el troba l'estableix com a no especificat
-        
-        # Efectes desitjats a curt termini
-        efectes_pos = info.get("efectes_desitjats_curt", [])        # Busca els efectes desitjats a curt termini i si no els troba els estableix com una llista buida
-        if isinstance(efectes_pos, list) and efectes_pos:           # Comprova que hi hagi efectes positius i dins aquest condicional mira si són una llista
-            efectes_pos_str = ", ".join(efectes_pos[:3])            # En cas que ho siguin agafa només els tres primers elements i els ajunta amb comes
+    try:
+        # Strings directes
+        nom_cientific = info["nom_cientific"]
+        descripcio = info["descripcio"]
+        legalitat = info["legalitat"]
+        composicio = info["composicio"]
+        dosi = info["dosi"]
+        durada = info["durada_efectes"]
+
+        # Llistes convertides a text
+        vies_str = ", ".join(info["vies_consum"])
+        factors_str = ", ".join(info["factors_efecte"])
+        efectes_desitjats_str = ", ".join(info["efectes_desitjats_curt"][:5])
+        efectes_no_desitjats_str = ", ".join(info["efectes_no_desitjats_curt"][:5])
+        efectes_llarg_str = ", ".join(info["efectes_llarg_termini"][:5])
+        barreja_str = ", ".join(info["barreja_perillosa"][:5])
+        adulterants_str = ", ".join(info["adulterants_freqüents"][:5])
+        indicadors_str = ", ".join(info["indicadors_alarma"][:5])
+
+        # Detecció en drogotests (tratament especial)
+        deteccio = info["deteccio_drogotests"]
+        if isinstance(deteccio, dict) and deteccio:
+            parts = [f"{test}: {temps}" for test, temps in deteccio.items() 
+                    if isinstance(temps, str) and temps.strip()]
+            deteccio_str = "; ".join(parts) if parts else "No especificada"
+        elif isinstance(deteccio, str) and deteccio.strip():
+            deteccio_str = deteccio
         else:
-            efectes_pos_str = "efectes variables"                   # Si no és una llista o aquesta està buida, defineix els efectes com si fossin variables
-        
-        # Efectes no desitjats a curt termini  
-        efectes_neg = info.get("efectes_no_desitjats_curt", [])    # Busca els efectes no desitjats a curt termini i si no els troba els estableix com una llista buida
-        if isinstance(efectes_neg, list) and efectes_neg:          # Comprova que n'hi hagi i que siguin una llista
-            efectes_neg_str = ", ".join(efectes_neg[:3])           # Si són una llista, n'agafa els tres primers
-        else:
-            efectes_neg_str = "efectes variables"                  # En cas que no n'hi hagi, posa que són variables
-        
-        dosi = info.get("dosi", "No especificada")                 # Busca la dosi de la substància, si no la troba ho indica
-        durada = info.get("durada_efectes", "No especificada")     # Busca la durada dels efectes i si no n'hi ha ho diu
-        
-        # Text natural
-        text = f"{id_s.capitalize()} ({nom}): Produeix {efectes_pos_str}. "    # Posa la primera lletra del nom en majúscula, li posa dos punt i la paraula "Produeix" seguida dels efectes 
-        text += f"Efectes negatius: {efectes_neg_str}. "                       # Afegeix a la frase d'abans les paraules "Efectes negatius" seguides dels efectes negatius
-        text += f"Dosi: {dosi}. Durada: {durada}."                             # Afegeix la dosi i la durada indicant-ho amb les paraules
-        
-        return text                                                            # Retorna la frase completa que conté totes les parts però en una afirmació curta
-        
+            deteccio_str = "No especificada"
+
+        # Crear text amb TOTA la informació
+        text = f"""
+    {id_s.capitalize()}
+    Nom científic: {nom_cientific}
+    Descripció: {descripcio}
+    Legalitat: {legalitat}
+    Composició: {composicio}
+    Vies de consum: {vies_str}
+    Factors que depenen l'efecte: {factors_str}
+    Efectes desitjats (curt termini): {efectes_desitjats_str}
+    Efectes no desitjats (curt termini): {efectes_no_desitjats_str}
+    Efectes a llarg termini: {efectes_llarg_str}
+    Dosis: {dosi}
+    Duració dels efectes: {durada}
+    Detecció en drogotests: {deteccio_str}
+    Barreja amb substàncies o fàrmacs: {barreja_str}
+    Adulterants freqüents: {adulterants_str}
+    Indicadors d'alarma: {indicadors_str}
+    """
+        return text.strip()
+   
     except Exception as e:
-        return f"{id_s}: Informació disponible sobre aquesta substància."      # Això només s'executa si falla alguna part del codi anterior, torna el nom de la substància i un missatge bàsic
-
-
+        return f"Error processant {id_s}: {str(e)}"
 
 # Dividir el text en fragments més petits "chunks":
 def dividir_chunks(documents, chunk_size: int = 1500, chunk_overlap: int = 200):         # La superposició indica que el següent fragment agafi els últims 200 caràcters per tal de no tallar frases per la meitat
@@ -124,7 +146,7 @@ def crear_RAG(llm, vectordb):
     
     qa_prompt = ChatPromptTemplate.from_template(                         # Crea el prompt inicial que s'enviarà al model juntament amb els fragments de text rellevants
         """                      
-        Ets un expert en drogues. Respon en català amb la informació del context.
+        Ets un assistent virtual expert en drogues, tens informació sobre 19 substàncies: Cannabis, Alcohol, Cocaïna, MDMA, LSD, Ketamina, Cloretil, Metanfetamina, DMT, GHB, Opio, Òxid Nitrós, Bolets al·luciògens, Tusi, Popper, Speed, 2c-b, Herïna i Benzodiazepines. Respon en català amb la informació del context. Recorda parlar en primera persona. 
 
         Context: {context}
         Pregunta: {input}

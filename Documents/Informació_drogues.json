@@ -18,80 +18,63 @@
         "sang": "6-72 hores",
         "cabell": "90 dies"
       },
-      "barrejes_perilloses": {
-        "alcohol": "lipotímies, vòmits",
-        "estimulants": "augment risc sobredosi, ansietat",
-        "psicodèliques": "experiència massa intensa",
-        "benzodiazepines": "depressió respiratòria"
-      },
-      "adulterants_freqüents": ["altres cannabinoids sintètics", "productes químics desconeguts"],
-      "indicadors_alarma": ["baixada tensió prolongada", "deliris o al·lucinacions", "crisi ansietat/pànic", "taquicardia severa"]
+      "barreja_perillosa": ["alcohol", "estimulants", "psicodèlics", "benzodiazepines"],
+      "indicadors_alarma": ["baixades tensió prolongades", "deliris al·lucinacions", "crisi ansietat", "taquicàrdies greus"],
+      "adulterants_freqüents": ["altres herbes", "productes químics"]
     },
-
     "alcohol": {
       "nom_cientific": "Etanol",
-      "descripcio": "Líquid incolor, depressor sistema nerviós central. Begudes fermentades (5-15%) i destil·lades (20%+)",
-      "legalitat": "Legal +18 ans. Prohibit botella 23h, botellón. Conducció: 0.5g/L sang, 0.25mg/L aire",
-      "composicio": "Aigua i etanol. Begudes fermentades: cereals/fruites. Licors: sucre i aromes",
+      "descripcio": "Depressor SNC. Begudes fermentades (5-15%) i destil·lades (>20%)",
+      "legalitat": "Legal +18 anys. Prohibit botellón. Tasa conducció: 0.5g/l sang (0.25mg/l aire)",
+      "composicio": "Aigua i etanol. Begudes amb sucre i aromes",
       "vies_consum": ["oral"],
-      "factors_efecte": ["sexe", "pes", "velocitat consum", "tipus beguda", "panxa buida", "tolerància"],
-      "efectes_desitjats_curt": ["eufòria", "desinhibició", "millora relacions socials", "millora estat ànim", "relaxació"],
-      "efectes_no_desitjats_curt": ["disminució capacitats", "inestabilitat emocional", "ressaca", "intoxicació etílica", "coma etílic"],
+      "factors_efecte": ["sexe", "pes", "velocitat beure", "tipus beguda", "panxa buida", "tolerància"],
+      "efectes_desitjats_curt": ["eufòria", "desinhibició", "sociabilitat", "millora ànim", "relaxació"],
+      "efectes_no_desitjats_curt": ["disminució capacitats", "inestabilitat emocional", "ressaca", "intoxicació etílica"],
       "efectes_llarg_termini": ["falta vitamines", "cirrosis", "addicció", "síndrome abstinència mortal"],
       "dosi": "Dones: 20g, Homes: 40g. Cervesa: 5g, Cubata: 15g",
-      "durada_efectes": "Inici: 15min. Lleus: 1.5-3h. Intensos: 4h. Ressaca: 6-24h",
+      "durada_efectes": "Inici: 15min. Efectes lleus: 1.5-3h. Intensos: 4h. Ressaca: 6-24h",
       "deteccio_drogotests": {
-        "etilòmetre": "2-12 hores",
+        "etilometre": "2-12 hores",
         "sang": "6-12 hores"
       },
-      "barrejes_perilloses": {
-        "depressors": "coma, pèrdua consciència",
-        "estimulants": "sobredosi, deshidratació",
-        "cocaïna": "coca-etilè tòxic",
-        "medicaments": "mort per depressió respiratòria"
-      },
-      "adulterants_freqüents": ["metanol", "alcohols fusel"],
-      "indicadors_alarma": ["pèrdua consciència", "respiració lenta", "coloració blavosa", "convulsions"]
+      "barreja_perillosa": ["depressors", "estimulants", "cocaïna", "begudes energètiques", "medicaments"],
+      "indicadors_alarma": ["pèrdua consciència", "respiració lenta", "coloració blavosa", "convulsions"],
+      "adulterants_freqüents": ["metanol", "alcohols fusel"]
     },
-
-    "cocaina": {
+    "cocaïna": {
       "nom_cientific": "Benzoilmetilecgonina",
-      "descripcio": "Pols blanca d'fulles de coca. Estimulant sistema nerviós ràpid. Noms: coca, farla, perico",
-      "legalitat": "Totalment il·legal. Possessió petita a casa no és delicte. Us medical controlat",
-      "composicio": "Fórmula C17H22ClNO4. Alcaloide de planta coca",
-      "vies_consum": ["esnifada", "fumada", "intravenosa"],
+      "descripcio": "Estimulant SNC ràpid. Pols blanca. Actua dopamina",
+      "legalitat": "Totalment il·legal. Permès quantitat petita casa",
+      "composicio": "Fórmula: C17H22ClNO4. Alcaloide planta coca",
+      "vies_consum": ["esnifat", "fumat", "intravenós"],
       "factors_efecte": ["característiques personals", "puresa", "tolerància", "estat psicològic"],
-      "efectes_desitjats_curt": ["eufòria", "absència fatiga/gana/son", "desinhibició", "augment freqüència cardíaca"],
-      "efectes_no_desitjats_curt": ["fatiga", "angoixa", "paranoia", "dolor abdominal", "vòmits", "tristesa (baixón)"],
-      "efectes_llarg_termini": ["irregularitats menstruació", "trastorns alimentaris", "problemes cardiovasculars/respiratoris", "addicció"],
+      "efectes_desitjats_curt": ["eufòria", "absència fatiga", "disminució inhibicions", "acceleració cardíaca"],
+      "efectes_no_desitjats_curt": ["fatiga", "angoixa", "paranoies", "dolor abdominal", "tristesa"],
+      "efectes_llarg_termini": ["irregularitats menstruació", "trastorns alimentaris", "problemes cardiovasculars", "addicció"],
       "dosi": "Baixa: 20-50mg, Mitja: 50-75mg, Alta: >75mg",
-      "durada_efectes": "30-90 minuts",
+      "durada_efectes": "30-45 minuts, lleus fins 1 hora",
       "deteccio_drogotests": {
         "orina": "1-7 dies",
         "saliva": "24 hores",
         "sang": "12-48 hores",
         "cabell": "90 dies"
       },
-      "barrejes_perilloses": {
-        "estimulants": "augment pressió arterial, parades cardíaques",
-        "alcohol": "coca-etilè tòxic",
-        "depressors_estimulants": "cop de calor mortal"
-      },
-      "adulterants_freqüents": ["levamisol", "cafeïna", "fenacetina", "lidocaïna"],
-      "indicadors_alarma": ["dolor pit", "palpitacions extremes", "convulsions", "paranoia extrema"]
+      "barreja_perillosa": ["estimulants", "depressors", "psicodèlics"],
+      "indicadors_alarma": ["dolor pit", "palpitacions extremes", "convulsions", "paranoia extrema"],
+      "adulterants_freqüents": ["levamisol", "cafeïna", "fenacetina", "lidocaïna"]
     },
-
-    "mdma o èxtasi": {
+    "mdma": {
       "nom_cientific": "3,4-Metilendioximetanfetamina",
-      "descripcio": "Èxtasi. Sintètic, actua sobre serotonina. Formes: pastilles, cristall",
-      "legalitat": "Totalment il·legal. Possessió petita a casa no és delicte. Us medical alguns països",
-      "composicio": "Fórmula C11H15NO2. Droga sintètica",
+      "descripcio": "Sintètic. Actua serotonina. Pastilles o cristall",
+      "legalitat": "Totalment il·legal. Alguns països ús mèdic",
+      "composicio": "Fórmula: C11H15NO2",
       "vies_consum": ["oral", "intranasal"],
-      "factors_efecte": ["gènere", "dosi", "tolerància", "pes", "estat emocional", "puresa", "VIH/VHC amb ritonavir"],
-      "efectes_desitjats_curt": ["intensificació emocions", "confiança", "empatia", "autoestima", "desinhibició", "eufòria", "comunicació"],
-      "efectes_no_desitjats_curt": ["angoixa", "boca seca", "pupiles dilatades", "tensió mandibular", "augment freqüència cardíaca", "ressaca emocional", "hipertèrmia"],
-      "efectes_llarg_termini": ["tolerància (pèrdua magia)", "deteriorament memòria", "alteracions ànim", "malalties mentals", "danys neurològics/cardíacs"],
-      "dosi": "1-1.5mg per kg pes. Exemple: 70kg = 100mg",
+      "factors_efecte": ["gènere", "dosi", "tolerància", "pes", "estat emocional", "puresa", "VIH amb ritonavir"],
+      "efectes_desitjats_curt": ["intensificació emocions", "empatia", "autoestima", "desinhibició", "eufòria", "comunicació"],
+      "efectes_no_desitjats_curt": ["angoixa", "boca seca", "pupil·les dilatades", "tensió mandibular", "ressaca", "hipertèrmia"],
+      "efectes_llarg_termini": ["tolerància", "deteriorament memòria", "alteracions ànim", "malalties mentals", "danys neurològics"],
+      "dosi": "1-1.5mg per kg pes. Esperar 3-4h entre dosis",
       "durada_efectes": "Inici: 20-70min. Durada: 4-6 hores",
       "deteccio_drogotests": {
         "orina": "3-5 dies",
@@ -99,53 +82,42 @@
         "saliva": "12-48 hores",
         "cabell": "90 dies"
       },
-      "barrejes_perilloses": {
-        "alcohol": "veure alcohol",
-        "estimulants": "sobreestimulació",
-        "antidepressius": "mortal"
-      },
-      "adulterants_freqüents": ["cafeïna", "metanfetamina", "PMMA/PMA"],
-      "indicadors_alarma": ["dolor pit", "temperatura alta", "convulsions", "paranoia extrema", "pèrdua coneixement"]
+      "barreja_perillosa": ["alcohol", "estimulants", "antidepressius"],
+      "indicadors_alarma": ["dolor pit", "temperatura alta", "convulsions", "confusió extrema", "pèrdua coneixement"],
+      "adulterants_freqüents": ["cafeïna", "metanfetamina", "PMMA/PMA"]
     },
-
     "lsd": {
       "nom_cientific": "Lysergic acid diethylamide",
-      "descripcio": "Sintetitzat 1938. Paper fi (tripi). Molt sensible a llum/calor",
-      "legalitat": "Totalment il·legal. Possessió petita a casa no és delicte. Investigació us medical",
-      "composicio": "Sintètic, obtingut de fong Claviceps purpurea",
-      "vies_consum": ["oral", "nasal", "pell"],
+      "descripcio": "Psicodèlic sintètic. Papers (tripi). Sensible llum",
+      "legalitat": "Totalment il·legal. Investigació mèdica depressió",
+      "composicio": "Sintètic. Obtingut de fong Claviceps purpurea",
+      "vies_consum": ["oral", "intranasal", "pell"],
       "factors_efecte": ["puresa", "tolerància", "estat físic/emocional", "via consum"],
-      "efectes_desitjats_curt": ["canvis emocionals", "descens ansietat", "interès relacions", "confiança", "sensibilitat estímuls", "al·lucinacions", "alteració temps", "creativitat"],
-      "efectes_no_desitjats_curt": ["augment ansietat", "paranoia", "confusió", "mal viatge (24 hores)"],
-      "efectes_llarg_termini": ["tolerància ràpida", "augment freqüència cardíaca", "esquizofrènia predisposats"],
-      "dosi": "Baixa: 20-30µg, Mitja: 100µg, Alta: 150-200µg",
-      "durada_efectes": "Inici: 20-30min. Viatge: 3-6 hores. Tornada: 8-12 hores",
+      "efectes_desitjats_curt": ["canvis emocionals", "descens ansietat", "interès relacions", "confiança", "sensibilitat estímuls", "al·lucinacions", "creativitat"],
+      "efectes_no_desitjats_curt": ["augment ansietat", "paranoies", "confusió", "mal viatge"],
+      "efectes_llarg_termini": ["tolerància", "augment pressió arterial", "esquizofrènia predisposats"],
+      "dosi": "Baixa: 20-30μg, Mitjana: 100μg, Alta: 150-200μg",
+      "durada_efectes": "Inici: 20-30min. Viatge: 3-6h. Total: 8-12h",
       "deteccio_drogotests": {
         "orina": "1-3 dies",
         "sang": "6-12 hores",
         "saliva": "6-12 hores"
       },
-      "barrejes_perilloses": {
-        "alcohol": "menys control",
-        "estimulants": "efectes adversos",
-        "antidepressius": "atacs epilèptics",
-        "cannabis": "experiència massa intensa"
-      },
-      "adulterants_freqüents": ["NBOME", "DOx"],
-      "indicadors_alarma": ["desconnexió realitat", "pànic extrem", "convulsions", "efectes massa llargs"]
+      "barreja_perillosa": ["alcohol", "estimulants", "mdma", "psicodèlics", "antidepressius", "cannabis"],
+      "indicadors_alarma": ["desconnexió realitat", "pànic extrem", "convulsions", "efectes massa llargs"],
+      "adulterants_freqüents": ["NOMe", "DOx"]
     },
-
     "ketamina": {
       "nom_cientific": "2-chlorophenyl-2-methylamine-cyclohexanone",
-      "descripcio": "Anestèsic dissociatiu (1962). Us en animals i persones. Caducitat: 1-5 anys",
-      "legalitat": "Controlada, no totalment il·legal. Venta amb recepta. Possessió sense recepta: delicte",
-      "composicio": "Fórmula C13H16CINO. Sintètic",
-      "vies_consum": ["oral", "nasal"],
+      "descripcio": "Anestèsic dissociatiu. Us mèdic animals/persones",
+      "legalitat": "Controlada no totalment il·legal. Amb recepta",
+      "composicio": "Fórmula: C13H16ClNO",
+      "vies_consum": ["oral", "intranasal"],
       "factors_efecte": ["pes", "tolerància", "estat ànim", "via consum"],
-      "efectes_desitjats_curt": ["relaxació", "eufòria", "disminució dolor", "desconnexió", "al·lucinacions", "desinhibició"],
-      "efectes_no_desitjats_curt": ["nàusees", "mareig", "suors", "mal cap", "confusió", "disminució memòria", "ressaca"],
-      "efectes_llarg_termini": ["pèrdua equilibri", "tolerància", "dependència", "problemes oculars", "angoixa", "danys bufeta", "problemes hepàtics"],
-      "dosi": "Oral: baixa 50-100mg, alta 100-300mg. Nasal: baixa 15-30mg, mitja 30-75mg",
+      "efectes_desitjats_curt": ["relaxació", "eufòria", "disminució dolor", "desconnexió", "al·lucinacions"],
+      "efectes_no_desitjats_curt": ["nàusees", "mareig", "suors", "mal cap", "confusió", "resaca"],
+      "efectes_llarg_termini": ["pèrdua equilibri", "tolerància", "dependència", "problemes oculars", "danys bufeta"],
+      "dosi": "Oral: 50-300mg, Nasal: 15-75mg",
       "durada_efectes": "Inici: 10min. Durada: 1-2 hores",
       "deteccio_drogotests": {
         "orina": "3-14 dies",
@@ -153,111 +125,270 @@
         "saliva": "24 hores",
         "cabell": "90 dies"
       },
-      "barrejes_perilloses": {
-        "depressors": "pèrdua coordinació, desmais",
-        "estimulants": "sobredosi, addicció",
-        "psicodèliques": "efectes intensos"
-      },
-      "adulterants_freqüents": ["cafeïna", "lidocaïna/procaïna", "metoxetamina"],
-      "indicadors_alarma": ["K-hole", "problemes respiratoris", "vòmits inconsciència", "convulsions", "paranoia"]
+      "barreja_perillosa": ["depressors", "estimulants", "psicodèlics"],
+      "indicadors_alarma": ["desconnexió extrema", "problemes respiratoris", "vòmits inconsciència", "convulsions"],
+      "adulterants_freqüents": ["cafeïna", "lidocaïna", "metoxetamina"]
     },
-
     "cloretil": {
-      "nom_cientific": "Clorur d'etil (C2H5Cl)",
-      "descripcio": "Gas comercialitzat com líquid a pressió. Us com a anestèsic i sprays esportius",
-      "legalitat": "No fiscalitzat com a droga. Us recreatiu sancionat. Venta regulada",
-      "composicio": "Substància sintètica halogenada",
+      "nom_cientific": "Clorur d'etil",
+      "descripcio": "Gas líquid pressió. Us mèdic i esportiu",
+      "legalitat": "No fiscalitzat penalment. Ús recreatiu sancionat",
+      "composicio": "Fórmula: C₂H₅Cl",
       "vies_consum": ["inhalació"],
-      "factors_efecte": ["quantitat inhalada", "temps exposició", "estat respiratori/cardiovascular", "experiència"],
-      "efectes_desitjats_curt": ["eufòria", "anestèsia local", "evasió", "alteració temps", "riure", "al·lucinacions geomètriques"],
-      "efectes_no_desitjats_curt": ["mareig", "desmai", "vòmits", "dificultat parlar", "cremades pell"],
+      "factors_efecte": ["quantitat inhalada", "estat respiratori", "experiència", "manera consumir"],
+      "efectes_desitjats_curt": ["eufòria", "anestèsia", "evasió", "alteració temps", "riure", "al·lucinacions"],
+      "efectes_no_desitjats_curt": ["mareig", "vòmits", "dificultat parlar", "cremades pell"],
       "efectes_llarg_termini": ["descoordinació", "temblors", "mals cap", "al·lucinacions", "pèrdua memòria"],
       "dosi": "Variable, difícil controlar",
-      "durada_efectes": "Immediata, pocs minuts",
-      "deteccio_drogotests": "Cromatografia gasos (poc habitual)",
-      "barrejes_perilloses": {
-        "estimulants": "augment riscos cardiovasculars",
-        "depressors": "desmai, parada respiratòria"
-      },
-      "adulterants_freqüents": ["altres solvents", "productes químics"],
-      "indicadors_alarma": ["pèrdua consciència prolongada", "confusió extrema", "respiració molt lenta"]
+      "durada_efectes": "Immediat, pocs minuts",
+      "deteccio_drogotests": "Cromatografia gasos",
+      "barreja_perillosa": ["estimulants", "depressors"],
+      "indicadors_alarma": ["pèrdua consciència prolongada", "confusió extrema", "respiració lenta"],
+      "adulterants_freqüents": []
     },
-
     "metanfetamina": {
-      "nom_cientific": "N-metil-1-fenilpropan-2-amina (C10H15N)",
-      "descripcio": "Estimulant SNC. Pols blanca, pastilles, cristalls. Alliberació massiva dopamina",
-      "legalitat": "Totalment il·legal us recreatiu. Us medical molt restringit",
-      "composicio": "Sintètic (clorhidrat metanfetamina). Puresa variable",
-      "vies_consum": ["oral", "nasal", "fumada", "injectada"],
-      "factors_efecte": ["quantitat", "puresa", "via", "pes", "tolerància", "estat emocional/físic"],
-      "efectes_desitjats_curt": ["energia", "eufòria", "vigília", "rendiment", "confiança", "desinhibició", "augment desig sexual", "pèrdua gana"],
-      "efectes_no_desitjats_curt": ["augment FC/pressió", "hipertèrmia", "insomni", "bruxisme", "boca seca", "nerviosisme", "ansietat", "paranoia"],
-      "efectes_llarg_termini": ["tolerància ràpida", "dependència", "deteriorament cognitiu/memòria", "paranoia crònica", "pèrdua pes", "problemes dentals (meth mouth)", "riscos cardiovasculars"],
+      "nom_cientific": "N-metil-1-fenilpropan-2-amina",
+      "descripcio": "Estimulant SNC fort. Pols, pastilla, cristalls",
+      "legalitat": "Totalment il·legal",
+      "composicio": "Fórmula: C₁₀H₁₅N",
+      "vies_consum": ["oral", "intranasal", "fumat", "injectada"],
+      "factors_efecte": ["quantitat", "puresa", "via", "pes", "tolerància", "estat emocional"],
+      "efectes_desitjats_curt": ["energia", "eufòria", "vigília", "confiança", "desig sexual", "pèrdua gana"],
+      "efectes_no_desitjats_curt": ["augment cardíac", "hipertèrmia", "insomni", "bruxisme", "boca seca", "nerviosisme"],
+      "efectes_llarg_termini": ["tolerància", "dependència", "deteriorament cognitiu", "paranoia", "problemes dentals"],
       "dosi": "Baixa: 5-10mg, Mitja: 10-30mg, Alta: >30mg",
-      "durada_efectes": "Oral: 3-5h, Esnifada: 2-4h, Fumada: 1-3h. Baixón: fins 24h",
+      "durada_efectes": "Oral: 3-5h, Esnifada: 2-4h, Fumada: 1-3h. Baixón: 24h",
       "deteccio_drogotests": {
         "orina": "4 dies",
         "sang": "3 dies",
         "saliva": "1-3 dies",
         "cabell": "90 dies"
       },
-      "barrejes_perilloses": {
-        "estimulants": "sobreestimulació, risc cardiovascular",
-        "depressors": "descoordinació, decisions perilloses",
-        "antidepressius": "mort"
-      },
-      "adulterants_freqüents": ["impureses síntesi", "barreges altres drogues"],
-      "indicadors_alarma": ["dolor toràcic", "palpitacions fortes", "respiració dificultosa", "convulsions", "pèrdua consciència", "ideacions suicides"]
+      "barreja_perillosa": ["estimulants", "depressors", "medicaments"],
+      "indicadors_alarma": ["dolor toràcic", "palpitacions", "respiració dificultosa", "convulsions", "conducta violenta"],
+      "adulterants_freqüents": ["impureses síntesi"]
     },
-
     "dmt": {
       "nom_cientific": "N,N-Dimetiltriptamina",
-      "descripcio": "Triptamina psicodèlica natural (plantes, animals). Fumada: efecte curt. Oral (ayahuasca): efecte llarg",
-      "legalitat": "Il·legal. Ayahuasca pot tenir tractaments legals específics",
-      "composicio": "Molècula triptamines. Base lliure o sal cristal·lina",
-      "vies_consum": ["fumada", "oral"],
-      "factors_efecte": ["dosi", "puresa", "via", "estat emocional/mental", "interaccions", "pes", "tolerància"],
-      "efectes_desitjats_curt": ["al·lucinacions visuals intenses", "transcendència", "sortir cos", "distorsió temps", "canvis emocionals", "viatge intens"],
-      "efectes_no_desitjats_curt": ["ansietat intensa", "mal viatge", "desorientació", "nàusees", "augment FC/pressió", "tremolor", "confusió", "convulsions"],
-      "efectes_llarg_termini": ["empitjorament trastorns mentals preexistents", "seqüeles psicològiques (flashbacks, ansietat)"],
-      "dosi": "Fumada: 10-50mg (no hi ha dosi segura garantida)",
-      "durada_efectes": "Fumada: 5-30min. Oral: 20-60min inici, fins 8 hores",
+      "descripcio": "Psicodèlic natural. Pols/cristall. Fumat o oral (ayahuasca)",
+      "legalitat": "Il·legal. Ayahuasca debat legal",
+      "composicio": "Triptamina natural",
+      "vies_consum": ["fumat", "oral"],
+      "factors_efecte": ["dosi", "puresa", "via", "estat emocional", "pes", "tolerància"],
+      "efectes_desitjats_curt": ["al·lucinacions intenses", "transcendència", "distorsió temps", "canvis emocionals"],
+      "efectes_no_desitjats_curt": ["ansietat intensa", "desorientació", "nàusees", "augment pressió", "tremolor"],
+      "efectes_llarg_termini": ["seqüeles psicològiques", "flashbacks", "trastorns ansietat"],
+      "dosi": "Fumat: 10-50mg. No dosi segura garantida",
+      "durada_efectes": "Fumat: 5-30min. Oral: 20-60min inici, 8h durada",
       "deteccio_drogotests": {
-        "sang/saliva": "poques hores",
+        "sang": "poques hores",
+        "saliva": "poques hores",
         "orina": "24 hores",
         "cabell": "mesos"
       },
-      "barrejes_perilloses": {
-        "antidepressius": "crisi hipertensiva",
-        "alcohol/depressors/estimulants": "reacció imprevisible",
-        "psicodèlics": "intensitat, mal viatge"
-      },
-      "adulterants_freqüents": "Variació puresa, imperfectes",
-      "indicadors_alarma": ["dolor toràcic", "respiració dificultosa", "pèrdua consciència", "convulsions", "síndrome serotoninèrgica"]
+      "barreja_perillosa": ["antidepressius", "alcohol", "depressors", "estimulants", "psicodèlics"],
+      "indicadors_alarma": ["dolor toràcic", "respiració dificultosa", "pèrdua consciència", "convulsions", "síndrome serotoninèrgica"],
+      "adulterants_freqüents": ["variació puresa"]
     },
-
     "ghb": {
       "nom_cientific": "Àcid gamma-hidroxibutíric",
-      "descripcio": "Èxtasi líquid. Depressor SNC. Líquid incolor, gust salat",
-      "legalitat": "Il·legal us recreatiu. Forma farmacèutica controlada (oxibat sòdic)",
-      "composicio": "Molècula orgànica. Dissolta en aigua/begudes. Precursors: GBL, 1,4-BD",
+      "descripcio": "Depressor SNC. Líquid incolor, gust salat. Èxtasi líquid",
+      "legalitat": "Controlat. Venda recreativa il·legal",
+      "composicio": "Molècula orgànica. Precursors: GBL, 1,4-BD",
       "vies_consum": ["oral"],
-      "factors_efecte": ["No especificat en document"],
-      "efectes_desitjats_curt": ["No especificat en document"],
-      "efectes_no_desitjats_curt": ["No especificat en document"],
-      "efectes_llarg_termini": ["No especificat en document"],
-      "dosi": "No especificat en document",
-      "durada_efectes": "No especificat en document",
-      "deteccio_drogotests": "No especificat en document",
-      "barrejes_perilloses": "No especificat en document",
-      "adulterants_freqüents": "No especificat en document",
-      "indicadors_alarma": "No especificat en document"
+      "factors_efecte": ["quantitat", "puresa", "menjar abans", "combinacions", "pes", "tolerància"],
+      "efectes_desitjats_curt": ["relaxació", "desinhibició", "eufòria", "sociabilitat", "calmat"],
+      "efectes_no_desitjats_curt": ["nàusees", "vòmits", "mareig", "confusió", "pèrdua memòria", "coma"],
+      "efectes_llarg_termini": ["tolerància", "dependència", "abstinència", "desregulació son"],
+      "dosi": "Baixa: 0.5-1g, Alta: 1-2g (marge estret)",
+      "durada_efectes": "Inici: 15-30min. Durada: 2-4 hores",
+      "deteccio_drogotests": {
+        "orina": "12 hores",
+        "sang": "finestra curta"
+      },
+      "barreja_perillosa": ["depressors", "estimulants", "medicaments sedants"],
+      "indicadors_alarma": ["pèrdua consciència", "respiració lenta", "coloració blavosa", "vòmits inconsciència"],
+      "adulterants_freqüents": ["variabilitat concentració", "precursors"]
+    },
+    "opi": {
+      "nom_cientific": "Papaver somniferum L.",
+      "descripcio": "Natural adormidera. Làtex assecat. Olor característica",
+      "legalitat": "Il·legal. Derivats (morfina) amb recepta",
+      "composicio": "Alcaloides: morfina (10-20%), codeïna, papaverina",
+      "vies_consum": ["fumat", "oral", "rectal", "injectat"],
+      "factors_efecte": ["quantitat", "puresa", "via", "tolerància", "estat físic"],
+      "efectes_desitjats_curt": ["eufòria", "benestar", "relaxació", "analgèsia", "supressió ansietat"],
+      "efectes_no_desitjats_curt": ["somnolència", "nàusees", "picor", "restrenyiment", "pupil·les petites"],
+      "efectes_llarg_termini": ["tolerància", "dependència", "abstinència intensa", "deteriorament físic"],
+      "dosi": "Variable. No dosi segura",
+      "durada_efectes": "Fumat: 3-6h. Oral: 8 hores",
+      "deteccio_drogotests": {
+        "orina": "2-7 dies",
+        "sang": "hores",
+        "cabell": "mesos"
+      },
+      "barreja_perillosa": ["alcohol", "benzodiazepines", "barbitúrics", "opiacis"],
+      "indicadors_alarma": ["respiració lenta", "pèrdua consciència", "cianosi", "vòmits inconsciència"],
+      "adulterants_freqüents": ["restes vegetals", "opiacis", "cafeïna"]
+    },
+    "oxid_nitros": {
+      "nom_cientific": "Òxid nitrós",
+      "descripcio": "Gas del riure. Cartutxos whippets. Us mèdic i reposteria",
+      "legalitat": "Usos lícits regulats. Venda recreativa regulada",
+      "composicio": "N₂O",
+      "vies_consum": ["inhalació"],
+      "factors_efecte": ["quantitat", "velocitat inhalació", "freqüència", "estat salut"],
+      "efectes_desitjats_curt": ["eufòria", "riure", "lleugeresa", "entorpeciment", "alteracions visuals"],
+      "efectes_no_desitjats_curt": ["mareig", "nàusees", "desmai", "hipotensió", "asfíxia"],
+      "efectes_llarg_termini": ["dèficit B12", "neurotoxicitat", "problemes psíquics"],
+      "dosi": "No dosi segura. Evitar inhalar directament",
+      "durada_efectes": "Ràpid, pocs minuts",
+      "deteccio_drogotests": "No rutinari, proves específiques",
+      "barreja_perillosa": ["depressors", "estimulants"],
+      "indicadors_alarma": ["pèrdua consciència", "respiració irregular", "cianosi", "convulsions", "signes neurològics"],
+      "adulterants_freqüents": ["qualitat cartutx"]
+    },
+    "bolets_al·lucinogens": {
+      "nom_cientific": "Psilocybe cubensis, Psilocybe semilanceata",
+      "descripcio": "Fongs psicoactius. Frescos o secs. Psilocibina i psilocina",
+      "legalitat": "Psilocibina il·legal. Buits bolets frescos",
+      "composicio": "Psilocibina i psilocina (triptamines)",
+      "vies_consum": ["oral", "infusions", "càpsules"],
+      "factors_efecte": ["espècie", "quantitat", "estat emocional", "tolerància", "entorn"],
+      "efectes_desitjats_curt": ["alteracions visuals", "unitat entorn", "eufòria", "introspecció", "canvi temps"],
+      "efectes_no_desitjats_curt": ["ansietat", "nàusees", "confusió", "mareig", "mal viatge"],
+      "efectes_llarg_termini": ["flashbacks", "ansietat", "brots psicòtics predisposats"],
+      "dosi": "Sec: baixa 0.5-1g, mitjana 1-2.5g, alta >2.5g. Frescos: x10",
+      "durada_efectes": "Inici: 20-60min. Màxim: 1-3h. Total: 4-6h",
+      "deteccio_drogotests": {
+        "orina": "<24 hores",
+        "sang": "poques hores",
+        "cabell": "setmanes/mesos"
+      },
+      "barreja_perillosa": ["alcohol", "depressors", "estimulants", "psicodèlics", "antidepressius"],
+      "indicadors_alarma": ["agitació intensa", "al·lucinacions fortes", "vòmits abundants", "convulsions", "episodi psicòtic"],
+      "adulterants_freqüents": ["confusió espècies tòxiques"]
+    },
+    "tusi": {
+      "nom_cientific": "Barreja",
+      "descripcio": "Cocaïna rosa. Barreja ketamina, MDMA, cafeïna. Color rosa",
+      "legalitat": "Il·legal (components controlats)",
+      "composicio": "Variable: ketamina, MDMA, cafeïna, edulcorants, colorants",
+      "vies_consum": ["intranasal", "oral"],
+      "factors_efecte": ["composició lot", "dosi", "via", "estat salut", "policonsum"],
+      "efectes_desitjats_curt": ["excitació", "eufòria", "desconnexió", "empatia"],
+      "efectes_no_desitjats_curt": ["nàusees", "mareig", "confusió", "pèrdua coordinació", "pèrdua consciència"],
+      "efectes_llarg_termini": ["problemes renals", "son", "ànim", "memòria", "addicció"],
+      "dosi": "Variable per lot. No dosificació fiable",
+      "durada_efectes": "Variable per composició",
+      "deteccio_drogotests": "Depèn components",
+      "barreja_perillosa": ["depressors", "estimulants", "opioides"],
+      "indicadors_alarma": ["pèrdua consciència", "respiració lenta", "convulsions", "palpitacions", "dolor toràcic"],
+      "adulterants_freqüents": ["variable"]
+    },
+    "popper": {
+      "nom_cientific": "Nitrits d'alquil",
+      "descripcio": "Líquid volàtil inflamable. Us sexual (relaxació muscular)",
+      "legalitat": "Venda recreativa regulada. Camuflat neteja/aromes",
+      "composicio": "Nitrits d'alquil (amyl, butyl, isopropyl)",
+      "vies_consum": ["inhalació"],
+      "factors_efecte": ["quantitat", "freqüència", "tipus nitrit", "estat cardiovascular"],
+      "efectes_desitjats_curt": ["calor", "eufòria", "relaxació muscular", "desinhibició", "rush"],
+      "efectes_no_desitjats_curt": ["cefalea", "mareig", "baixada tensió", "palpitacions", "desmais"],
+      "efectes_llarg_termini": ["cefales cròniques", "tolerància", "lesions vasculars"],
+      "dosi": "No dosi segura",
+      "durada_efectes": "Immediat, pocs minuts",
+      "deteccio_drogotests": "No rutinari",
+      "barreja_perillosa": ["medicaments disfunció erèctil", "vasodilatadors", "depressors", "alcohol"],
+      "indicadors_alarma": ["pèrdua coneixement", "respiració irregular", "cianosi", "convulsions"],
+      "adulterants_freqüents": ["variabilitat composició"]
+    },
+    "speed": {
+      "nom_cientific": "Sulfat d'anfetamina",
+      "descripcio": "Sintètic. Pols/cristalls. Família fenetilamines",
+      "legalitat": "Controlada. Venda recreativa prohibida",
+      "composicio": "Anfetamina. Adulterants: cafeïna, amines",
+      "vies_consum": ["oral", "intranasal", "fumat", "intravenosa"],
+      "factors_efecte": ["dosi", "puresa", "via", "pes", "tolerància", "estat salut"],
+      "efectes_desitjats_curt": ["alerta", "vigília", "energia", "sociabilitat"],
+      "efectes_no_desitjats_curt": ["nerviosisme", "tremolors", "sudoració", "insomni", "palpitacions"],
+      "efectes_llarg_termini": ["tolerància", "dependència", "deteriorament son", "problemes cardiovasculars"],
+      "dosi": "~10mg efectes, >30mg intoxicació",
+      "durada_efectes": "Ràpid inici. Durada: 3-6 hores. Baixón: hores/dies",
+      "deteccio_drogotests": {
+        "orina": "1-5 dies"
+      },
+      "barreja_perillosa": ["estimulants", "depressors", "medicaments"],
+      "indicadors_alarma": ["dolor toràcic", "palpitacions", "dificultat respirar", "hipertèrmia", "psicosi"],
+      "adulterants_freqüents": ["cafeïna", "anfetamines", "NPS"]
+    },
+    "2cb": {
+      "nom_cientific": "4-bromo-2,5-dimetoxifeniletilamina",
+      "descripcio": "Sintètic psicodèlic/estimulant. Cristall/pastilla. Tusibí",
+      "legalitat": "Il·legal",
+      "composicio": "2C-B",
+      "vies_consum": ["oral", "intranasal"],
+      "factors_efecte": ["dosi", "via", "estat emocional", "entorn", "experiència"],
+      "efectes_desitjats_curt": ["alteracions visuals", "eufòria", "sociabilitat", "sensibilitat tàctil", "alegria"],
+      "efectes_no_desitjats_curt": ["ansietat", "mareig", "nàusees", "augment pressió", "al·lucinacions"],
+      "efectes_llarg_termini": ["tolerància", "alteracions ànim", "ansietat", "despersonalització"],
+      "dosi": "Oral: 5-20mg, Esnifada: 2-10mg",
+      "durada_efectes": "Oral: 4-6h, Esnifada: 2-4h",
+      "deteccio_drogotests": {
+        "orina": "24 hores"
+      },
+      "barreja_perillosa": ["psicodèlics", "estimulants", "depressors"],
+      "indicadors_alarma": ["confusió extrema", "agitació", "taquicàrdia", "hipertensió", "convulsions"],
+      "adulterants_freqüents": ["altres 2C", "anfetamines"]
+    },
+    "heroina": {
+      "nom_cientific": "Diacetilmorfina",
+      "descripcio": "Opiaci semisintètic. Pols blanca/marronosa",
+      "legalitat": "Il·legal",
+      "composicio": "Diacetilmorfina. Adulterants: lactosa, cafeïna",
+      "vies_consum": ["fumat", "esnifada", "injectada"],
+      "factors_efecte": ["quantitat", "puresa", "via", "tolerància"],
+      "efectes_desitjats_curt": ["calma", "calor", "benestar", "relaxació", "alleujament dolor"],
+      "efectes_no_desitjats_curt": ["somnolència", "pupil·les petites", "nàusees", "restrenyiment", "respiració lenta"],
+      "efectes_llarg_termini": ["tolerància", "dependència", "abstinència intensa", "infeccions", "deteriorament"],
+      "dosi": "Variable puresa. No dosi segura",
+      "durada_efectes": "Fumat/Injectada: 2-4h, Oral: 4-6h",
+      "deteccio_drogotests": {
+        "orina": "2-3 dies",
+        "sang": "hores",
+        "cabell": "mesos"
+      },
+      "barreja_perillosa": ["depressors", "estimulants"],
+      "indicadors_alarma": ["pèrdua consciència", "respiració absent", "pell pàl·lida", "llavis blaus"],
+      "adulterants_freqüents": ["cafeïna", "lactosa", "paracetamol", "fentanil"]
+    },
+    "benzodiazepines": {
+      "nom_cientific": "1,4-benzodiazepí",
+      "descripcio": "Depressors SNC. Ansiolítics, sedants. Pastilles/càpsules",
+      "legalitat": "Legal amb recepta",
+      "composicio": "Nucli benzodiazepínic",
+      "vies_consum": ["oral", "sublingual", "intranasal", "intravenosa"],
+      "factors_efecte": ["dosi", "tipus", "via", "tolerància", "estat salut"],
+      "efectes_desitjats_curt": ["relaxació", "reducció ansietat", "son", "disminució tensió"],
+      "efectes_no_desitjats_curt": ["somnolència", "falta coordinació", "dificultats parla", "desorientació", "amnèsia"],
+      "efectes_llarg_termini": ["tolerància", "dependència", "alteracions memòria", "ansietat rebot", "depressió"],
+      "dosi": "Variable principi actiu. No dosi segura sense control",
+      "durada_efectes": "Curta: 2-4h, Intermèdia: 6-12h, Llarga: 24h+",
+      "deteccio_drogotests": {
+        "orina": "7-21 dies",
+        "sang": "detectable",
+        "cabell": "detectable"
+      },
+      "barreja_perillosa": ["alcohol", "opiacis", "GHB", "depressors"],
+      "indicadors_alarma": ["respiració lenta", "falta resposta", "confusió profunda", "pèrdua consciència"],
+      "adulterants_freqüents": ["benzodiazepines disseny"]
     }
-  },
-  "metadades": {
-    "versio": "1.0",
+  }
+  ,
+"metadades": {
+    "versio": "1.1",
     "actualitzacio": "2025-01-15",
     "fonts": ["Energy Control", "Documentació original TDR"],
-    "numero_substancies": 10
+    "numero_substancies": 18
   }
 }
