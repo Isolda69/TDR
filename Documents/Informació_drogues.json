@@ -137,11 +137,13 @@
       "vies_consum": ["inhalació"],
       "factors_efecte": ["quantitat inhalada", "estat respiratori", "experiència", "manera consumir"],
       "efectes_desitjats_curt": ["eufòria", "anestèsia", "evasió", "alteració temps", "riure", "al·lucinacions"],
-      "efectes_no_desitjats_curt": ["mareig", "vòmits", "dificultat parlar", "cremades pell"],
+      "efectes_no_desitjats_curt": ["mareig", "vòmits", "dificultat parla", "cremades pell"],
       "efectes_llarg_termini": ["descoordinació", "temblors", "mals cap", "al·lucinacions", "pèrdua memòria"],
       "dosi": "Variable, difícil controlar",
       "durada_efectes": "Immediat, pocs minuts",
-      "deteccio_drogotests": "Cromatografia gasos",
+      "deteccio_drogotests": {
+        "proves_especials": "Cromatografia gasos"
+      },
       "barreja_perillosa": ["estimulants", "depressors"],
       "indicadors_alarma": ["pèrdua consciència prolongada", "confusió extrema", "respiració lenta"],
       "adulterants_freqüents": []
@@ -243,7 +245,9 @@
       "efectes_llarg_termini": ["dèficit B12", "neurotoxicitat", "problemes psíquics"],
       "dosi": "No dosi segura. Evitar inhalar directament",
       "durada_efectes": "Ràpid, pocs minuts",
-      "deteccio_drogotests": "No rutinari, proves específiques",
+      "deteccio_drogotests": {
+        "proves_especials": "No rutinari, proves específiques"
+      },
       "barreja_perillosa": ["depressors", "estimulants"],
       "indicadors_alarma": ["pèrdua consciència", "respiració irregular", "cianosi", "convulsions", "signes neurològics"],
       "adulterants_freqüents": ["qualitat cartutx"]
@@ -281,7 +285,9 @@
       "efectes_llarg_termini": ["problemes renals", "son", "ànim", "memòria", "addicció"],
       "dosi": "Variable per lot. No dosificació fiable",
       "durada_efectes": "Variable per composició",
-      "deteccio_drogotests": "Depèn components",
+      "deteccio_drogotests": {
+        "proves_especials": "Depèn components"
+      },
       "barreja_perillosa": ["depressors", "estimulants", "opioides"],
       "indicadors_alarma": ["pèrdua consciència", "respiració lenta", "convulsions", "palpitacions", "dolor toràcic"],
       "adulterants_freqüents": ["variable"]
@@ -298,7 +304,9 @@
       "efectes_llarg_termini": ["cefales cròniques", "tolerància", "lesions vasculars"],
       "dosi": "No dosi segura",
       "durada_efectes": "Immediat, pocs minuts",
-      "deteccio_drogotests": "No rutinari",
+      "deteccio_drogotests": {
+        "proves_especials": "No rutinari"
+      },
       "barreja_perillosa": ["medicaments disfunció erèctil", "vasodilatadors", "depressors", "alcohol"],
       "indicadors_alarma": ["pèrdua coneixement", "respiració irregular", "cianosi", "convulsions"],
       "adulterants_freqüents": ["variabilitat composició"]
@@ -383,10 +391,9 @@
       "indicadors_alarma": ["respiració lenta", "falta resposta", "confusió profunda", "pèrdua consciència"],
       "adulterants_freqüents": ["benzodiazepines disseny"]
     }
-  }
-  ,
-"metadades": {
-    "versio": "1.1",
+  },
+  "metadades": {
+    "versio": "1.2",
     "actualitzacio": "2025-01-15",
     "fonts": ["Energy Control", "Documentació original TDR"],
     "numero_substancies": 18

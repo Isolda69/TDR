@@ -48,16 +48,12 @@ def format_mes_compacte(id_s, info, metadades):
         adulterants_str = ", ".join(info["adulterants_freqüents"][:5])
         indicadors_str = ", ".join(info["indicadors_alarma"][:5])
 
-        # Detecció en drogotests (tratament especial)
+        # Detecció en drogotests (diferent perquè és un diccionari)
         deteccio = info["deteccio_drogotests"]
-        if isinstance(deteccio, dict) and deteccio:
-            parts = [f"{test}: {temps}" for test, temps in deteccio.items() 
-                    if isinstance(temps, str) and temps.strip()]
-            deteccio_str = "; ".join(parts) if parts else "No especificada"
-        elif isinstance(deteccio, str) and deteccio.strip():
-            deteccio_str = deteccio
-        else:
-            deteccio_str = "No especificada"
+        parts = []
+        for test, temps in deteccio.items():
+            parts.append(f"{test}: {temps}")
+        deteccio_str = "; ".join(parts) if parts else "No especificada"
 
         # Crear text amb TOTA la informació
         text = f"""
